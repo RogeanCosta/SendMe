@@ -1,3 +1,15 @@
 #entrar{
     background-color: blueviolet;
+    vertical-align: middle;
+    position: relative; 
+    width: 55px;
 }
+
+#InputEmail{
+    width: 30%;
+    vertical-align: middle;
+    position: relative; 
+    top: 50px; 
+    left: 60px;
+}
+
