@@ -13,11 +13,8 @@ function App() {
         <Switch>
           <Route path="/" exact={true} component={Home} />
           <Route path="/login" component={Login} />
-<<<<<<< HEAD
           <Route path="/recuperarsenha" component={RecuperarSenha} />
-=======
           <Route path="/cadastro" component={Cadastro} />
->>>>>>> master
         </Switch>
       </BrowserRouter>
     </div>
