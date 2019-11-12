@@ -2,9 +2,8 @@ import React from "react";
 import "./App.css";
 import Login from "../Login";
 import Home from "../Home";
-import Cadastro from "../Cadastro";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import Cadastro from "../tela-cadastro"
 function App() {
   return (
     <div className="App">
