@@ -1,7 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import './index.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Form, { FormRow } from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
