@@ -22,7 +22,10 @@ export default () => (
                   <label htmlFor="inputEmail">Email</label>
                 </div>
 
-                <div className="form-label-group">
+                <div
+                  className="form-label-group"
+                  style={{ marginBottom: "0px" }}
+                >
                   <input
                     type="password"
                     id="inputPassword"
@@ -33,18 +36,12 @@ export default () => (
                   <label htmlFor="inputPassword">Senha</label>
                 </div>
 
-                <div className="custom-control custom-checkbox mb-3">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="customCheck1"
-                  />
-                  <label
-                    className="custom-control-label"
-                    htmlFor="customCheck1"
-                  >
-                    Lembrar senha
-                  </label>
+                <div className="row">
+                  <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-link">
+                      Esqueci minha senha
+                    </button>
+                  </div>
                 </div>
 
                 <button
@@ -53,9 +50,22 @@ export default () => (
                 >
                   Entrar
                 </button>
+                <button
+                  className="btn btn-lg btn-facebook btn-block text-uppercase"
+                  type="submit"
+                >
+                  Cadastrar
+                </button>
               </form>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12 text-center">
+          <a class="btn btn-outline-light" href="#" role="button">
+            Ajuda
+          </a>
         </div>
       </div>
     </div>
