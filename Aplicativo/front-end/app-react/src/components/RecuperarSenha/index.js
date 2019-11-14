@@ -33,7 +33,7 @@ export default () => (
                         <button
                         id="button"
                         className="btn btn-lg btn-primary btn-block text-uppercase"
-                        type="submit"
+                        type="button"
                         >
                         Solicitar recuperação de senha
                         
