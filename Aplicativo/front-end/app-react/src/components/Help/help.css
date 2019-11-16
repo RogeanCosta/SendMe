@@ -1,0 +1,25 @@
+.card-signin {
+    padding: 10px;
+    padding-bottom: 15px;
+}
+
+h4 a{
+    color:#000000;
+}
+
+h4 a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+#tela-contatos{
+    width: 40%;
+}
+
+#logo-facebook {
+    display: inline;
+    font-family: klavika-bold;
+    font-size: 2em;
+    color: blue;
+    margin-right: 5px;
+}
