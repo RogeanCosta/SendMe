@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import './help.css'
 
 
 export default () => (
@@ -43,6 +44,16 @@ export default () => (
                     </div>
                 </div>
             </div> 
+            <div>
+                <h4>Contato do supermercado</h4>
+                <p> &#128386; contato@email.com</p>
+                <p>	&#9742; (xx) xxxxx-xxxx</p>
+                <p>link</p>
+            </div>
+            <div>
+                <h6>Problemas com o aplicativo? Fale conosco</h6>
+                <p>&#128386; contatododesenvolvedor@email.com</p>
+            </div>
         </div>
     </Fragment>
 );
