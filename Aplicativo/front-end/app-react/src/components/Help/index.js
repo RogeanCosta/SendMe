@@ -51,7 +51,7 @@ export default () => (
                     <h4>Contato do supermercado</h4>
                     <p> &#128386; contato@email.com</p>
                     <p>	&#9742; (xx) xxxxx-xxxx</p>
-                    <p><p id="logo-facebook">f</p>link p/ facebook</p>
+                    <p>link p/ facebook</p>
                 </div>
                 <div>
                     <h6>Problemas com o aplicativo? Fale conosco</h6>
