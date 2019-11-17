@@ -3,6 +3,16 @@ import './telaInicial.css'
 
 export default () => (
     <Fragment>
+        <div className="container ">
+        <div className="row justify-content-md-center " id = "rowUser" > 
+        <div className=" " id = "text" ></div>
+        <button id="button7" class="btn btn-primary btn-circle btn-xl">
+
+        </button> 
+        
+        </div>
+        <p class="text-md-center">Selecione o supermercado</p>
+        </div>
         <div class="jumbotron vertical-center">
         <div className="container">
         <div className="row justify-content-md-center" id = "row" > 
@@ -27,7 +37,4 @@ export default () => (
             </div>
             </div>
      </Fragment>
-
-
-
 );
