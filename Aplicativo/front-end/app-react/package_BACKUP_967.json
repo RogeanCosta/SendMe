@@ -4,8 +4,12 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.4.1",
+<<<<<<< HEAD
     "firebase": "^7.4.0",
+    "react": "^16.11.0",
+=======
     "react": "^16.12.0",
+>>>>>>> b650d0e47848c2aa3a67f3eaf312568ce1032ba4
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",

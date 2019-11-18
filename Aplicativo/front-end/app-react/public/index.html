@@ -25,6 +25,21 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -32,7 +47,7 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="logo192.png" />
-    
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -58,6 +73,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <<<<<<< HEAD
     <script src="/__/firebase/7.4.0/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -66,5 +82,32 @@
 
     <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
+    =======
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD0-zAQj01vV0qkHwQ6Dm5GEIxbxggreL4",
+        authDomain: "sendme-a0d34.firebaseapp.com",
+        databaseURL: "https://sendme-a0d34.firebaseio.com",
+        projectId: "sendme-a0d34",
+        storageBucket: "sendme-a0d34.appspot.com",
+        messagingSenderId: "710923151105",
+        appId: "1:710923151105:web:2b56bada52656a03e1dd00",
+        measurementId: "G-GX7SD1BESS"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    >>>>>>> b650d0e47848c2aa3a67f3eaf312568ce1032ba4
   </body>
 </html>

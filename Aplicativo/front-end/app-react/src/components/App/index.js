@@ -5,6 +5,10 @@ import "./App.css";
 import Login from "../Login";
 import Home from "../Home";
 import firebaseConfig from "./../../config/firebaseConfig";
+import Cadastro from "../tela-cadastro";
+import Produtos from "../Produtos";
+import Help from "../Help";
+import RecuperarSenha from "../RecuperarSenha";
 
 class App extends Component {
   state = {
@@ -17,19 +21,8 @@ class App extends Component {
     this.setState({ auth: firebase.auth() }, () => {
       this.state.auth.onAuthStateChanged(function(user) {
         if (user) {
-          // User is signed in.
-          /* var displayName = user.displayName;
-          var email = user.email;
-          var emailVerified = user.emailVerified;
-          var photoURL = user.photoURL;
-          var isAnonymous = user.isAnonymous;
-          var uid = user.uid;
-          var providerData = user.providerData; */
-          // ...
           console.log("Usuário logou");
         } else {
-          // User is signed out.
-          // ...
           console.log("Usuário deslogou");
         }
       });
@@ -48,6 +41,10 @@ class App extends Component {
               path="/login"
               render={() => <Login auth={this.state.auth} />}
             />
+            <Route path="/recuperarsenha" component={RecuperarSenha} />
+            <Route path="/cadastro" component={Cadastro} />
+            <Route path="/produtos" component={Produtos} />
+            <Route path="/help" component={Help} />
           </Switch>
         </BrowserRouter>
       </div>
