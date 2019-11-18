@@ -1,0 +1,56 @@
+.card-img-top {
+    width: 50%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    text-align: center;
+}
+
+#Apresentacao{
+    text-align: left;
+    border-bottom: 1px solid rgb(54, 53, 53);
+}
+
+.card-deck .card {
+    display: flex;
+    flex: 1 0 0%;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-bottom: 0;
+    margin-left: 15px;
+    text-align: -webkit-center;
+}
+
+#Nissin{
+    width: 70%;
+}
+
+.card-deck {
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 33px;
+    width: 70%;
+    position: relative;
+    top: 111px;
+    left: 220px;
+}
+
+#Quantidade{
+    text-align: center;
+}
+
+#Menos{
+    width: 3px;
+}
+
+#Quantity{
+    transition: all 0.4s ease-in-out;
+    margin: 0 5px;
+    text-align: center;
+    width: 25px;
+}
+
+#Preco{
+    text-align: center;
+}
