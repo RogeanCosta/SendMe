@@ -9,6 +9,7 @@ import Cadastro from "../tela-cadastro";
 import Produtos from "../Produtos";
 import Help from "../Help";
 import RecuperarSenha from "../RecuperarSenha";
+import Inicial from "../Inicial";
 
 class App extends Component {
   state = {
@@ -45,6 +46,7 @@ class App extends Component {
             <Route path="/cadastro" component={Cadastro} />
             <Route path="/produtos" component={Produtos} />
             <Route path="/help" component={Help} />
+            <Route path="/inicial" component={Inicial} />
           </Switch>
         </BrowserRouter>
       </div>

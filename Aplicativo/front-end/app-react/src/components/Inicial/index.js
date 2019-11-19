@@ -2,46 +2,33 @@ import React,{Component} from 'react'
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
-import Product from './Produtos.js'
-import './index.css'
+import Category from './Categorias.js'
+import './inicial.css'
 
 export default class Produtos extends Component{
     render(){
         return(
         <div>
           <div id="Apresentacao">
-            <h1>Supermercado São Luiz - Categoria: Mercearia</h1>
+            <h1>Selecione a categoria</h1>
           </div>
           <div>
             <CardDeck id="CardDeck">
-            <Card>
-              <Card.Img variant="top" src={Product[0].imagem}/>
+            
+            <Card className="card01">
               <Card.Body>
-                <Card.Title>{Product[0].nome}<br/></Card.Title>
-                <Card.Text>
-                     R$ {Product[0].preco}
-                </Card.Text>
-                <div id="Quantidade">                
-                <i class="icon-minus-sign"></i>
-                <input type="tel" min="1" id="Quantity"></input>
-                <i class="icon-plus-sign"></i>
-                </div> 
-                <br/>
-                <i class="icon-heart-empty"></i>
-
-                
+                <Card.Title>{Category[0].nome}<br/></Card.Title>
               </Card.Body>
-              <Card.Footer>
-                <Button variant="success"><i class="icon-shopping-cart"></i> Adicionar ao Carrinho</Button>
-              </Card.Footer>
+              <Card.Img variant="top" src={Category[0].imagem}/>
+             
             </Card>
-
+            
             <Card>
-              <Card.Img variant="top" src={Product[1].imagem}/>
+              <Card.Img variant="top" src={Category[1].imagem}/>
               <Card.Body>
-        <Card.Title>{Product[1].nome}</Card.Title>
+        <Card.Title>{Category[1].nome}</Card.Title>
                 <Card.Text id="Preco">
-                  R$ {Product[1].preco}
+                  R$ {Category[1].preco}
                 </Card.Text>
                 <div id="Quantidade">
                   <i class="icon-minus-sign"></i>
@@ -57,11 +44,11 @@ export default class Produtos extends Component{
             </Card>
 
             <Card>
-              <Card.Img variant="top" src={Product[2].imagem} />
+              <Card.Img variant="top" src={Category[2].imagem} />
               <Card.Body>
-              <Card.Title>{Product[2].nome}</Card.Title>
+              <Card.Title>{Category[2].nome}</Card.Title>
                 <Card.Text>
-                  R$ {Product[2].preco}
+                  R$ {Category[2].preco}
                 </Card.Text>
                 <div id="Quantidade">
                   <i class="icon-minus-sign"></i>
@@ -81,11 +68,11 @@ export default class Produtos extends Component{
           <div>
           <CardDeck id="CardDeck">
             <Card>
-              <Card.Img variant="top" src={Product[3].imagem}/>
+              <Card.Img variant="top" src={Category[3].imagem}/>
               <Card.Body>
-                <Card.Title>{Product[3].nome}<br/></Card.Title>
+                <Card.Title>{Category[3].nome}<br/></Card.Title>
                 <Card.Text>
-                     R$ {Product[3].preco}
+                     R$ {Category[3].preco}
                 </Card.Text>
                 <div id="Quantidade">
                 <i class="icon-minus-sign"></i>
@@ -101,11 +88,11 @@ export default class Produtos extends Component{
             </Card>
 
             <Card>
-              <Card.Img variant="top" src={Product[4].imagem}/>
+              <Card.Img variant="top" src={Category[4].imagem}/>
               <Card.Body>
-        <Card.Title>{Product[4].nome}</Card.Title>
+        <Card.Title>{Category[4].nome}</Card.Title>
                 <Card.Text id="Preco">
-                  R$ {Product[4].preco}
+                  R$ {Category[4].preco}
                 </Card.Text>
                 <div id="Quantidade">
                   <i class="icon-minus-sign"></i>
@@ -121,11 +108,11 @@ export default class Produtos extends Component{
             </Card>
 
             <Card>
-              <Card.Img id="Nissin" variant="top" src={Product[5].imagem} />
+              <Card.Img id="Nissin" variant="top" src={Category[5].imagem} />
               <Card.Body>
-                <Card.Title>{Product[5].nome}</Card.Title>
+                <Card.Title>{Category[5].nome}</Card.Title>
                 <Card.Text>
-                  R$ {Product[5].preco}
+                  R$ {Category[5].preco}
                 </Card.Text>
                 <div id="Quantidade">
                   <i class="icon-minus-sign"></i>
