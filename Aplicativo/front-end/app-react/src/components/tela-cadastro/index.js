@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import Form, { FormRow } from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button'
 
