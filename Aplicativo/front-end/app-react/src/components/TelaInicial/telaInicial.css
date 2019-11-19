@@ -1,11 +1,5 @@
-/* 
-     .xyz { 
-        position:absolute;
-        background-size: auto; 
-        text-align: center; 
-        padding-top: 10px; 
-        padding-right: 500px;
-    }   */
+
+
 .btn-circle.btn-xl { 
         position: relative;
         width: 170px; 
@@ -18,63 +12,56 @@
         
     } 
 
-.col-centered{
-    float: none;
-    margin: 0 auto;
-}  
-
-
-.btn-primary {
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important;
-    /* background-image: url("/images/paodeacucar.png")!important;
-    background-size: 160px 150px; */
-
-}
-
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.open>.dropdown-toggle.btn-primary {
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #f5f5f500!important;
-    /* background-image: url("/images/Extra-Vermelho.jpg")!important;
-    background-size: 160px 150px; */
-} 
-
-
-
 #button1{
     background-image: url("/images/paodeacucar.png")!important;
     background-size: 160px 150px;  
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
 }
 #button2{
     background-image: url("/images/paodeacucar.png")!important;
     background-size: 160px 150px;  
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
 }
 #button3{
     background-image: url("/images/paodeacucar.png")!important;
-    background-size: 160px 150px;  
+    background-size: 160px 150px; 
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important; 
 }
 #button4{
     background-image: url("/images/paodeacucar.png")!important;
     background-size: 160px 150px;  
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
 }
 #button5{
     background-image: url("/images/Extra-Vermelho.jpg")!important;
     background-size: 160px 150px;  
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
 }
 #button7{
     background-image: url("/images/usertest.png")!important;
     background-size: 125px 130px; 
     width: 130px;
     height: 130px;
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
+}
 
 
+#button8{
+    width: 100px !important; 
+    height: 37px !important; 
+    right: 800px;
 }
 
 .jumbotron {
@@ -95,3 +82,47 @@
     font-size: 2.5rem;
     color: rgb(251, 255, 255);
 }
+
+.btn-group-sm>.btn, .btn-sm {
+    padding: .25rem .5rem;
+    font-size: 2rem;
+    width: 112px;
+    height: 40px;
+    line-height: 1.5;
+    left: 500px;
+    border-radius: 2rem;
+}
+
+.btn-secondary {
+    color: rgb(0, 1, 5);
+    background-color: #f4f6f8;
+    border-color: #f4f6f8;
+    
+}
+
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary.active,
+.open>.dropdown-toggle.btn-secondary {
+    color: rgb(5, 1, 1)!important;
+    background-color: #f4f6f8!important;
+    border-color: #f4f6f8!important;
+    right: 80px;
+
+} 
+
+
+#carrinho{
+    padding-left: 822px;
+    padding-top: 8px;
+}
+
+#user{
+    padding-left: 500px;
+}
+
+
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css") 
+
