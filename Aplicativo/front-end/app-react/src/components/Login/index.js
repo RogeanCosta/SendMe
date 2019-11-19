@@ -1,11 +1,12 @@
 import React, { Fragment, Component } from "react";
+import { NavLink } from "react-router-dom";
 import "./Login.css";
 import handleInputChange from "../../utils/handleInputChange";
+import auth from "../../config/firebase";
 
 class Login extends Component {
   constructor() {
     super();
-
     this.handleChange = handleInputChange.bind(this);
   }
 
@@ -16,12 +17,14 @@ class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.auth
+    auth
       .signInWithEmailAndPassword(this.state.email, this.state.senha)
-      .then(console.log)
+      .then(() => alert('Usuário logado com sucesso!'))
       .catch(function(error) {
         console.log(error.code, "-", error.message);
       });
+
+    // this.auth.signOut();
   };
 
   render() {
@@ -78,12 +81,13 @@ class Login extends Component {
                     >
                       Entrar
                     </button>
-                    <button
-                      className="btn btn-lg btn-facebook btn-block text-uppercase"
+                    <NavLink
                       type="button"
+                      className="btn btn-lg btn-facebook btn-block text-uppercase"
+                      to="/cadastro"
                     >
                       Cadastrar
-                    </button>
+                    </NavLink>
                   </form>
                 </div>
               </div>
