@@ -1,0 +1,88 @@
+  h1{
+    text-align: center;
+  }
+
+  #buttons{
+    text-align: center;
+    position: relative;
+    top: 1.75cm;
+  }
+
+  #cadastrar{
+    position: relative;
+    right: 2cm;
+  }
+
+  #Container{
+    position: relative;
+    top: 55px;
+    left: 2cm;
+  }
+
+  #formGridEmail{
+    width: 65%;
+    margin-left: 2cm;
+  }
+
+  #formGridNome{
+    width: 80%;
+    margin-left: 2cm;
+  }
+
+  #formGridNascimento{
+    text-align: center;
+    width: 30%;
+    margin-left: 2cm;
+  }
+
+  #formGridRG{
+    width: 50%;
+    margin-left: 2cm;
+  }
+
+  #formGridCPF{
+    width: 50%;
+    margin-left: 2cm;
+  }
+
+  #formGridCEP{
+    width: 20%;
+    margin-left: 2cm;
+  }
+
+  #formGridNumero{
+    width: 25%;
+    margin-left: 2cm;
+  }
+
+  #formGridCidade{
+    width: 80%;
+    margin-left: 2cm;
+  }
+
+  #formGridEstado{
+    width: 40%;
+    margin-left: 2cm;
+  }
+
+  #formGridTel{
+    width: 40%;
+    margin-left: 2cm;
+  }
+
+  #formGridPassword{
+    width: 45%;
+    margin-left: 2cm;
+  }
+
+  #formGridEndereco{
+    margin-left: 2cm;
+  }
+
+  #formGridComplemento{
+    margin-left: 2cm;
+  }
+
+  #RogeanLabels{
+    margin-left: 2cm;
+  }
