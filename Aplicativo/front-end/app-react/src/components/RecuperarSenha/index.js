@@ -31,7 +31,7 @@ export default () => (
                         </div>
 
                         <button
-                        id="button"
+                        id="buttonRecuperarSenha"
                         className="btn btn-lg btn-primary btn-block text-uppercase"
                         type="button"
                         >
