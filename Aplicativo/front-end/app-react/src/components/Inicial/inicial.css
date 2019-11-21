@@ -1,4 +1,9 @@
-.card01 {
-  height: 5%;
-  width: 5%;
+.CardDeck {
+  height: 20em;
+  
 }
+
+.cartao {
+  background-color: rgb(255, 255, 255);
+}
+
