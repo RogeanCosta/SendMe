@@ -8,6 +8,7 @@ import Produtos from "../Produtos";
 import Help from "../Help";
 import RecuperarSenha from "../RecuperarSenha";
 import Inicial from "../Inicial";
+import Avatar from "../Avatar";
 
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path="/produtos" component={Produtos} />
             <Route path="/help" component={Help} />
             <Route path="/inicial" component={Inicial} />
+            <Route path="/avatar" component={Avatar} />
 
           </Switch>
         </BrowserRouter>
