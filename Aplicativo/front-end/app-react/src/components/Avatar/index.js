@@ -1,63 +1,53 @@
 import React, { Fragment } from "react";
 import './avatar.css'
+import avatar from "./imagem-avatar.jpg"
 
 
 export default () => (
     <Fragment>
         <div class="container">
-            <div className="card card-signin my-5">
-                <h2>FAQ</h2>
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 className="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Pergunta 1</a>
-                            </h4>
-                        </div>
-                        <div id="collapse1" class="panel-collapse collapse in">
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 className="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Pergunta 2</a>
-                            </h4>
-                        </div>
-                        <div id="collapse2" class="panel-collapse collapse">
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                        </div>
-                    </div>
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 className="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Pergunta 3</a>
-                            </h4>
-                        </div>
-                        <div id="collapse3" class="panel-collapse collapse">
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                        </div>
-                    </div>
+          <div class="row profile">
+		        <div class="col-md">
+			        <div class="profile">
+                {/*} SIDEBAR USERPIC */}
+                <div class="profile-userpic">
+                  <img src="./imagem-avatar.jpg" class="img-responsive" alt="" />
+				        </div>
+                {/* END SIDEBAR USERPIC */}
+                {/* SIDEBAR USER TITLE */}
+				        <div class="profile-usertitle">
+					        <div class="profile-usertitle-name">
+						        Nome do cliente <span class="fa fa-envelope small pull-right"> </span>
+					        </div>
+					        <div class="profile-usertitle-job">
+                    Email
+                  </div>
+				        </div>
+                {/* END SIDEBAR USER TITLE */}
+                {/* SIDEBAR MENU */}
+                <div class="profile-usermenu">
+                  <ul class="nav">
+                    <li >
+                      <a href="#">
+                      <i class="glyphicon"></i>
+                      Minha conta </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                      <i class="glyphicon"></i>
+                      Meus pedidos </a>
+                    </li>
+                    <li>
+                      <a href="#" target="_blank">
+                      <i class="glyphicon"></i>
+                      Sair </a>
+                    </li>
+                  </ul>
                 </div>
-            </div>
-            <div className="card card-signin my-5" id="tela-contatos">
-                <div>
-                    <h4>Contato do supermercado</h4>
-                    <p> &#128386; contato@email.com</p>
-                    <p>	&#9742; (xx) xxxxx-xxxx</p>
-                    <p>link p/ facebook</p>
-                </div>
-                <div>
-                    <h6>Problemas com o aplicativo? Fale conosco</h6>
-                    <p>&#128386; contatododesenvolvedor@email.com</p>
-                </div>
-            </div>
+				        {/* END MENU */}
+			        </div>
+		        </div>
+	        </div>
         </div>
     </Fragment>
 );
