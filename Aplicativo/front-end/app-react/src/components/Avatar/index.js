@@ -1,17 +1,17 @@
 import React, { Fragment } from "react";
 import './avatar.css'
-import avatar from "./imagem-avatar.jpg"
+import avatar from "./avatar.jpg"
 
 
 export default () => (
     <Fragment>
         <div class="container">
-          <div class="row profile">
+          <div class="profile">
 		        <div class="col-md">
 			        <div class="profile">
                 {/*} SIDEBAR USERPIC */}
                 <div class="profile-userpic">
-                  <img src="./imagem-avatar.jpg" class="img-responsive" alt="" />
+                  <img src={avatar} class="img-responsive" alt="" />
 				        </div>
                 {/* END SIDEBAR USERPIC */}
                 {/* SIDEBAR USER TITLE */}

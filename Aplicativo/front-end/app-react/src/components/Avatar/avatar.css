@@ -4,6 +4,11 @@
   align-content: center;
 }
 
+.container {
+  max-width: 600px;
+  text-align: center;
+}
+
 /* Profile sidebar */
 .profile {
   padding: 20px 0 10px 0;
@@ -51,10 +56,6 @@
 .profile-usermenu ul li {
   border-bottom: 1px solid #f0f4f7;
   text-align: center;
-}
-
-.profile-usermenu ul li:last-child {
-  border-bottom: none;
 }
 
 .profile-usermenu ul li a {
