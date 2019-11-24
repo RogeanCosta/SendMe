@@ -35,7 +35,7 @@ export default () => (
                     <li>
                       <a href="#">
                       <i class="glyphicon"></i>
-                      Meus pedidos </a>
+                       Meus pedidos </a>
                     </li>
                     <li>
                       <a href="#" target="_blank">
