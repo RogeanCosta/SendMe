@@ -7,7 +7,8 @@ import Cadastro from "../tela-cadastro";
 import Produtos from "../Produtos";
 import Help from "../Help";
 import RecuperarSenha from "../RecuperarSenha";
-import Inicial from "../Inicial";
+import Loja from "../Loja";
+import TelaInicial from "../TelaInicial";
 
 
 class App extends Component {
@@ -22,7 +23,8 @@ class App extends Component {
             <Route path="/cadastro" component={Cadastro} />
             <Route path="/produtos" component={Produtos} />
             <Route path="/help" component={Help} />
-            <Route path="/inicial" component={Inicial} />
+            <Route path="/loja" component={Loja} />
+            <Route path="/inicial" component={TelaInicial} />
 
           </Switch>
         </BrowserRouter>
