@@ -59,7 +59,7 @@ export default class Produtos extends Component{
           {deck.map(produto => (
             <Col sm="4">
               <Card>
-                <Card.Img variant="top" src={`/imagens/${produto.imagem}`}/>
+                <Card.Img variant="top" src={produto.imagem}/>
                 <Card.Body>
                   <Card.Title>{produto.nome}<br/></Card.Title>
                   <Card.Text>
