@@ -12,4 +12,4 @@ const config = {
 };
 
 firebase.initializeApp(config);
-export default firebase.auth();
+export default firebase;
