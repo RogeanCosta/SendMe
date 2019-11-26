@@ -2,12 +2,13 @@ import React, { Fragment, Component } from "react";
 import { NavLink } from "react-router-dom";
 import "./Login.css";
 import handleInputChange from "../../utils/handleInputChange";
-import auth from "../../config/firebase";
+import firebase from "../../config/firebase";
 
 class Login extends Component {
   constructor() {
     super();
     this.handleChange = handleInputChange.bind(this);
+    this.auth = firebase.auth()
   }
 
   state = {
@@ -17,7 +18,7 @@ class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    auth
+    this.auth
       .signInWithEmailAndPassword(this.state.email, this.state.senha)
       .then(() => alert('Usuário logado com sucesso!'))
       .catch(function(error) {
