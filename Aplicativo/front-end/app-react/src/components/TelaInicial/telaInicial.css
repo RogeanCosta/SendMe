@@ -1,5 +1,4 @@
 
-
 .btn-circle.btn-xl { 
         position: relative;
         width: 170px; 
@@ -13,41 +12,66 @@
     } 
 
 #button1{
-    background-image: url("/images/paodeacucar.png")!important;
     background-size: 160px 150px;  
     color: #fff!important;
     background-color: #dfcccc17!important;
     border-color: #c5bcbc05!important;
 }
 #button2{
-    background-image: url("/images/paodeacucar.png")!important;
     background-size: 160px 150px;  
     color: #fff!important;
     background-color: #dfcccc17!important;
     border-color: #c5bcbc05!important;
 }
 #button3{
-    background-image: url("/images/paodeacucar.png")!important;
     background-size: 160px 150px; 
     color: #fff!important;
     background-color: #dfcccc17!important;
     border-color: #c5bcbc05!important; 
 }
 #button4{
-    background-image: url("/images/paodeacucar.png")!important;
     background-size: 160px 150px;  
     color: #fff!important;
     background-color: #dfcccc17!important;
     border-color: #c5bcbc05!important;
 }
 #button5{
-    background-image: url("/images/Extra-Vermelho.jpg")!important;
+    background-size: 160px 150px;  
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
+}
+#button6{
     background-size: 160px 150px;  
     color: #fff!important;
     background-color: #dfcccc17!important;
     border-color: #c5bcbc05!important;
 }
 #button7{
+    background-size: 160px 150px;  
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
+}
+#button8{
+    background-size: 160px 150px; 
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important; 
+}
+#button9{
+    background-size: 160px 150px;  
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
+}
+#button10{
+    background-size: 160px 150px;  
+    color: #fff!important;
+    background-color: #dfcccc17!important;
+    border-color: #c5bcbc05!important;
+}
+#buttonAvatar{
     background-image: url("/images/usertest.png")!important;
     background-size: 125px 130px; 
     width: 130px;
@@ -58,7 +82,7 @@
 }
 
 
-#button8{
+#buttonCarrinho{
     width: 100px !important; 
     height: 37px !important; 
     right: 800px;
