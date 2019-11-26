@@ -5,7 +5,7 @@ import avatar from "./avatar.jpg"
 
 export default () => (
     <Fragment>
-        <div class="container">
+        <div class="container" id="avatar">
           <div class="profile">
 		        <div class="col-md">
 			        <div class="profile">
