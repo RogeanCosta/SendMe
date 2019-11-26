@@ -82,11 +82,11 @@
 }
 
 
-#buttonCarrinho{
+/* #buttonCarrinho{
     width: 100px !important; 
     height: 37px !important; 
     right: 800px;
-}
+} */
 
 .jumbotron {
     padding: 20px 20px;
@@ -109,7 +109,7 @@
 
 .btn-group-sm>.btn, .btn-sm {
     padding: .25rem .5rem;
-    font-size: 2rem;
+    font-size: 1rem;
     width: 112px;
     height: 40px;
     line-height: 1.5;
@@ -148,5 +148,4 @@
 }
 
 
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css") 
 

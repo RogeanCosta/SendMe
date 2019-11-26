@@ -20,7 +20,7 @@ export default () => (
                 <div className="col-1">
                     <div className="item" id="carrinho">
                         <button type="buttonCarrinho" class="btn btn-secondary btn-sm">carrinho
-                            <i className="glyphicon glyphicon-shopping-cart"></i>
+                            <i className="icon-shopping-cart"></i>
                         </button> </div>
 
                 </div>
