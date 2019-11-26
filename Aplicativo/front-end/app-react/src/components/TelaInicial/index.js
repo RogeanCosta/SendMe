@@ -10,7 +10,7 @@ import Lojas from "./lojas.js";
 
 export default () => (
     <Fragment>
-        <div className="container ">
+        <div className="container " id = "container1">
             <div className="row " id="rowUser" >
                 <div className="col-1" id="colUser">
                     <div className="item" id="user">
@@ -27,8 +27,8 @@ export default () => (
             </div>
             <p className="text-md-center">Selecione o supermercado</p>
         </div>
-        <div className="jumbotron vertical-center">
-            <div className="container">
+        <div className="jumbotron vertical-center" id = "centralizar tela">
+            <div className="container" id ="container2">
                 <div className="row justify-content-md-center" id="row" >
                     <button id="button1" class="btn btn-primary btn-circle btn-xl mr-5" style={{backgroundImage: Lojas[0].loja0Imagem}}> </button>
                     <button id="button2" class="btn btn-primary btn-circle btn-xl mr-5" style={{backgroundImage: Lojas[1].loja1Imagem}}></button>
