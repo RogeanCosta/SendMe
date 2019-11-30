@@ -1,10 +1,6 @@
 import React, { Fragment, Component } from "react"
-// import React, { Component } from 'react'
 import Col from 'react-bootstrap/Col'
 import './telaInicial.css'
-import './avatar.js'
-import './carrinho.js'
-import Avatar from "./avatar.js";
 import './telaInicial.css'
 import firebase from "../../config/firebase"
 import chunk from "../../utils/chunk"
@@ -52,7 +48,7 @@ export default class TelaInicial extends Component {
                 <div className="row " id="rowUser" >
                     <div className="col-1" id="colUser">
                         <div className="item" id="user">
-                            <button id="buttonAvatar" class="btn btn-primary btn-circle btn-xl" style={{ backgroundImage: Avatar.imagem }}> </button>
+                            <button id="buttonAvatar" class="btn btn-primary btn-circle btn-xl" style={{ backgroundImage: "url('/images/usertest')" }}> </button>
                         </div>
                     </div>
                     <div className="col-1">
