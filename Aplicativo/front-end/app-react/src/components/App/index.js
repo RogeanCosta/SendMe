@@ -10,6 +10,7 @@ import RecuperarSenha from "../RecuperarSenha";
 import Avatar from "../Avatar";
 import Loja from "../Loja";
 import TelaInicial from "../TelaInicial";
+import Dados from "../Dados";
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path="/avatar" component={Avatar} />
             <Route path="/loja" component={Loja} />
             <Route path="/inicial" component={TelaInicial} />
+            <Route path="/dados" component={Dados} />
           </Switch>
         </BrowserRouter>
       </div>
