@@ -1,0 +1,26 @@
+.painel-dados{
+  border: 1px solid black;
+  width: 25%;
+  margin-bottom: 1.5em;
+  display: inline-block;
+}
+
+
+
+#painel-esquerdo {
+  margin-right: 20em;
+  margin-left: 10em;
+}
+
+.panel-heading {
+  background: rgb(180, 178, 178);
+  text-align: center;
+  height: 2em;
+}
+
+.panel-body {
+  background: rgb(202, 198, 198);
+  text-align: center;
+  height: 2em;
+}
+

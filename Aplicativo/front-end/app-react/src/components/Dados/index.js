@@ -1,5 +1,5 @@
 import React from "react";
-/*import "./dados.css";*/
+import "./dados.css";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -30,36 +30,80 @@ export default class Cadastro extends React.Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <h1>Cadastro</h1>
+        <h1>Atualização cadastral</h1>
+        <div id="Container" >
+
+
+        <div class="panel-group01">
+          <div class="painel-dados" id="painel-esquerdo">
+           <div class="panel-heading">Nome completo</div>
+           <div class="panel-body">dado do firebase</div>
+          </div>
+
+          <div class="painel-dados">
+           <div class="panel-heading">Data de Nascimento</div>
+           <div class="panel-body">dado do firebase</div>
+          </div>   
+        </div>
+        </div>
+
         <div id="Container">
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridNome">
-              <Form.Label id="RogeanLabels">Nome Completo</Form.Label>
-              <Form.Control type="text" placeholder="Digite seu nome" />
-            </Form.Group>
+          <div class="panel-group01">
+            <div class="painel-dados" id="painel-esquerdo">
+              <div class="panel-heading">RG</div>
+              <div class="panel-body">dado do firebase</div>
+            </div>
 
-            <Form.Group as={Col} controlId="formGridNascimento">
-              <Form.Label id="RogeanLabels">Data de Nascimento</Form.Label>
-              <Form.Control type="text" placeholder="DD/MM/AAAA" />
-            </Form.Group>
-          </Form.Row>
+            <div class="painel-dados">
+              <div class="panel-heading">CPF</div>
+              <div class="panel-body">dado do firebase</div>
+            </div>   
+          </div>
+        </div>
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridRG">
-              <Form.Label id="RogeanLabels">RG</Form.Label>
-              <Form.Control type="text" placeholder="Digite seu RG" />
-            </Form.Group>
+        <div id="Container">
 
-            <Form.Group as={Col} controlId="formGridCPF">
-              <Form.Label id="RogeanLabels">CPF</Form.Label>
-              <Form.Control type="text" placeholder="Digite seu CPF" />
-            </Form.Group>
-          </Form.Row>
+          <div class="panel-group">
+            <div class="painel-dados" id="painel-esquerdo">
+              <div class="panel-heading">CEP</div>
+              <div class="panel-body">CEP atual (dado do firebase)</div>
+              <div class="panel-body">
+                <Form.Control type="text" id="form-nome" placeholder="Digite seu novo CEP" />                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="Container">
 
-          <Form.Group controlId="formGridCEP">
-            <Form.Label id="RogeanLabels">Código Postal</Form.Label>
-            <Form.Control placeholder="Digite seu CEP" />
-          </Form.Group>
+        <div class="panel-group">
+          <div class="painel-dados" id="painel-dados">
+            <div class="panel-heading">Endereço</div>
+            <div class="panel-body">Endereço atual (dado do firebase)</div>
+            <div class="panel-body">
+              <Form.Control type="text" id="form-nome" placeholder="Digite seu novo endereço" />                  
+            </div>
+          </div>
+          </div>
+
+          <div class="panel-group">
+          <div class="painel-dados" id="painel-dados">
+            <div class="panel-heading">Panel Header</div>
+            <div class="panel-body">Panel Content</div>
+            <div class="panel-body">
+              <Form.Control type="text" id="form-nome" placeholder="Digite seu nome" />                  
+            </div>
+          </div>
+          </div>
+
+          <div class="panel-group">
+          <div class="painel-dados" id="painel-dados">
+            <div class="panel-heading">Panel Header</div>
+            <div class="panel-body">Panel Content</div>
+            <div class="panel-body">
+              <Form.Control type="text" id="form-nome" placeholder="Digite seu nome" />                  
+            </div>
+          </div>
+          </div>
 
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEndereco">
@@ -137,33 +181,21 @@ export default class Cadastro extends React.Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label id="RogeanLabels">Confirmar Email</Form.Label>
-              <Form.Control type="email" placeholder="Confirme seu Email" />
-            </Form.Group>
           </Form.Row>
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label id="RogeanLabels">Senha</Form.Label>
-              <Form.Control
-                name="senha"
-                type="password"
-                placeholder="Digite sua Senha"
-                onChange={this.handleChange}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridPassword">
-              <Form.Label id="RogeanLabels">Confirmar Senha</Form.Label>
-              <Form.Control type="password" placeholder="Confirme sua Senha" />
-            </Form.Group>
-          </Form.Row>
+          <div class="panel-group">
+          <div class="painel-dados" id="painel-dados">
+            <div class="panel-heading">Panel Header</div>
+            <div class="panel-body">Panel Content</div>
+            <div class="panel-body">
+              <Form.Control type="text" id="form-nome" placeholder="Digite seu nome" />                  
+            </div>
+          </div>
+          </div>
 
           <div id="buttons" className="buttons">
             <Button id="cadastrar" variant="success" type="submit">
-              Cadastrar
+              Atualizar
             </Button>
             <Button variant="danger" type="reset">
               Cancelar
