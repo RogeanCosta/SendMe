@@ -17,60 +17,7 @@
     background-color: #dfcccc17!important;
     border-color: #c5bcbc05!important;
 }
-#button2{
-    background-size: 160px 150px;  
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important;
-}
-#button3{
-    background-size: 160px 150px; 
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important; 
-}
-#button4{
-    background-size: 160px 150px;  
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important;
-}
-#button5{
-    background-size: 160px 150px;  
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important;
-}
-#button6{
-    background-size: 160px 150px;  
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important;
-}
-#button7{
-    background-size: 160px 150px;  
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important;
-}
-#button8{
-    background-size: 160px 150px; 
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important; 
-}
-#button9{
-    background-size: 160px 150px;  
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important;
-}
-#button10{
-    background-size: 160px 150px;  
-    color: #fff!important;
-    background-color: #dfcccc17!important;
-    border-color: #c5bcbc05!important;
-}
+
 #buttonAvatar{
     background-image: url("/images/usertest.png")!important;
     background-size: 125px 130px; 
@@ -81,18 +28,22 @@
     border-color: #c5bcbc05!important;
 }
 
-
-/* #buttonCarrinho{
-    width: 100px !important; 
-    height: 37px !important; 
-    right: 800px;
-} */
-
 .jumbotron {
-    padding: 20px 20px;
+    padding: 10px 10px;
     margin-bottom: 20px;
-    margin-top: 50px;
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-right: 20px;
     background-color: #e9ecef00;
+}
+
+#linhaLojas {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -120px;
+    margin-left: -15px;
 }
 #row{
     margin-left: 33px;
