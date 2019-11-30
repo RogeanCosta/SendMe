@@ -1,3 +1,7 @@
+h1 {
+  text-align: center;
+}
+
 .painel-dados{
   border: 1px solid black;
   width: 25%;
@@ -5,11 +9,26 @@
   display: inline-block;
 }
 
-
-
 #painel-esquerdo {
   margin-right: 20em;
-  margin-left: 10em;
+  margin-left: 20em;
+}
+
+#painel-cep {
+  margin-right: 13em;
+  margin-left: 20em;
+  width: 15%;
+}
+
+#painel-numero {
+  margin-right: 13em;
+  width: 15%;
+}
+
+#estado {
+  margin-right: 13em;
+  /*Quando fizer a ligação com o firebase, mudar essa width para 10% */
+  width: 15%;
 }
 
 .panel-heading {
@@ -19,8 +38,19 @@
 }
 
 .panel-body {
-  background: rgb(202, 198, 198);
+  background: rgb(219, 215, 215);
   text-align: center;
   height: 2em;
 }
 
+#complemento {
+  width: 15%;
+}
+
+#numero {
+  width: 15%;
+}
+
+.buttons {
+  text-align: center;
+}
