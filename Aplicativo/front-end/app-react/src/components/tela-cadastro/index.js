@@ -3,26 +3,53 @@ import "./index.css";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import auth from "../../config/firebase";
 import handleInputChange from "../../utils/handleInputChange";
+import firebase from "../../config/firebase"
+import { Link } from "react-router-dom";
 
 export default class Cadastro extends React.Component {
   constructor() {
     super();
     this.handleChange = handleInputChange.bind(this);
+    this.db = firebase.database()
+    this.auth = firebase.auth()
+
+    window.showComponentState = () => console.log(this.state);
   }
 
   state = {
+    nome: "",
+    dataNascimento: "",
+    rg: "",
+    cpf: "",
+    cep: "",
+    endereco: "",
+    complemento: "",
+    numero: "",
+    cidade: "",
+    estado: "",
+    telefone1: "",
+    telefone2: "",
     email: "",
-    senha: ""
+    confirmaEmail: "",
+    senha: "",
+    confirmaSenha: ""
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    auth
+
+    const { confirmaEmail, confirmaSenha, senha, ...newUser } = this.state;
+    this.db.ref('usuarios').push().set(newUser);
+
+    this.auth
       .createUserWithEmailAndPassword(this.state.email, this.state.senha)
-      .then(() => alert('Usuário adicionado com sucesso!'))
+      .then(() => {
+        alert('Usuário adicionado com sucesso!');
+        this.props.history.push('/inicial');
+      })
       .catch(function(error) {
+        alert('Erro ao criar usuário!')
         console.log(error.code, "-", error.message);
       });
   };
@@ -35,56 +62,56 @@ export default class Cadastro extends React.Component {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridNome">
               <Form.Label id="RogeanLabels">Nome Completo</Form.Label>
-              <Form.Control type="text" placeholder="Digite seu nome" />
+              <Form.Control name="nome" type="text" placeholder="Digite seu nome" onChange={this.handleChange} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridNascimento">
               <Form.Label id="RogeanLabels">Data de Nascimento</Form.Label>
-              <Form.Control type="text" placeholder="DD/MM/AAAA" />
+              <Form.Control name="dataNascimento" type="text" placeholder="DD/MM/AAAA" onChange={this.handleChange} />
             </Form.Group>
           </Form.Row>
 
           <Form.Row>
             <Form.Group as={Col} controlId="formGridRG">
               <Form.Label id="RogeanLabels">RG</Form.Label>
-              <Form.Control type="text" placeholder="Digite seu RG" />
+              <Form.Control name="rg" type="text" placeholder="Digite seu RG" onChange={this.handleChange} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridCPF">
               <Form.Label id="RogeanLabels">CPF</Form.Label>
-              <Form.Control type="text" placeholder="Digite seu CPF" />
+              <Form.Control name="cpf" type="text" placeholder="Digite seu CPF" onChange={this.handleChange} />
             </Form.Group>
           </Form.Row>
 
           <Form.Group controlId="formGridCEP">
             <Form.Label id="RogeanLabels">Código Postal</Form.Label>
-            <Form.Control placeholder="Digite seu CEP" />
+            <Form.Control name="cep" placeholder="Digite seu CEP" onChange={this.handleChange} />
           </Form.Group>
 
           <Form.Row>
             <Form.Group as={Col} controlId="formGridEndereco">
               <Form.Label id="RogeanLabels">Endereço</Form.Label>
-              <Form.Control placeholder="Rua, Avenida..." />
+              <Form.Control name="endereco" placeholder="Rua, Avenida..." onChange={this.handleChange} />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridComplemento">
               <Form.Label id="RogeanLabels">Complemento</Form.Label>
-              <Form.Control placeholder="Bloco, Apt., Casa..." />
+              <Form.Control name="complemento" placeholder="Bloco, Apt., Casa..." onChange={this.handleChange} />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridNumero">
               <Form.Label id="RogeanLabels">Numero</Form.Label>
-              <Form.Control placeholder="Ex. 1245" />
+              <Form.Control name="numero" placeholder="Ex. 1245" onChange={this.handleChange} />
             </Form.Group>
           </Form.Row>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCidade">
               <Form.Label id="RogeanLabels">Cidade</Form.Label>
-              <Form.Control placeholder="Digite a sua Cidade" />
+              <Form.Control name="cidade" placeholder="Digite a sua Cidade" onChange={this.handleChange} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridEstado">
               <Form.Label id="RogeanLabels">Estado</Form.Label>
-              <Form.Control as="select">
-                <option>Escolha seu Estado</option>
+              <Form.Control name="estado" as="select" onChange={this.handleChange}>
+                <option value="">Escolha seu Estado</option>
                 <option>Acre</option>
                 <option>Alagoas</option>
                 <option>Amapá</option>
@@ -118,12 +145,12 @@ export default class Cadastro extends React.Component {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridTel">
               <Form.Label id="RogeanLabels">Telefone 01</Form.Label>
-              <Form.Control type="text" placeholder="Digite seu Telefone" />
+              <Form.Control name="telefone1" type="text" placeholder="Digite seu Telefone" onChange={this.handleChange} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridTel">
               <Form.Label id="RogeanLabels">Telefone 02</Form.Label>
-              <Form.Control type="text" placeholder="Digite seu Telefone" />
+              <Form.Control name="telefone2" type="text" placeholder="Digite seu Telefone" onChange={this.handleChange} />
             </Form.Group>
           </Form.Row>
 
@@ -140,7 +167,7 @@ export default class Cadastro extends React.Component {
 
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label id="RogeanLabels">Confirmar Email</Form.Label>
-              <Form.Control type="email" placeholder="Confirme seu Email" />
+              <Form.Control name="confirmaEmail" type="email" placeholder="Confirme seu Email" onChange={this.handleChange} />
             </Form.Group>
           </Form.Row>
 
@@ -157,7 +184,7 @@ export default class Cadastro extends React.Component {
 
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label id="RogeanLabels">Confirmar Senha</Form.Label>
-              <Form.Control type="password" placeholder="Confirme sua Senha" />
+              <Form.Control name="confirmaSenha" type="password" placeholder="Confirme sua Senha" onChange={this.handleChange} />
             </Form.Group>
           </Form.Row>
 
@@ -165,9 +192,12 @@ export default class Cadastro extends React.Component {
             <Button id="cadastrar" variant="success" type="submit">
               Cadastrar
             </Button>
-            <Button variant="danger" type="reset">
-              Cancelar
-            </Button>
+
+            <Link to="/login">
+              <Button variant="danger" type="reset">
+                Cancelar
+              </Button>
+            </Link>
           </div>
         </div>
       </Form>

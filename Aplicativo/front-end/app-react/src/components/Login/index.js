@@ -20,8 +20,12 @@ class Login extends Component {
     e.preventDefault();
     this.auth
       .signInWithEmailAndPassword(this.state.email, this.state.senha)
-      .then(() => alert('Usuário logado com sucesso!'))
+      .then(() => {
+        alert('Usuário logado com sucesso!');
+        this.props.history.push('/inicial');
+      })
       .catch(function(error) {
+        alert('Usuário e senha incorretos!');
         console.log(error.code, "-", error.message);
       });
 
