@@ -11,6 +11,7 @@ import Avatar from "../Avatar";
 import Loja from "../Loja";
 import TelaInicial from "../TelaInicial";
 import Dados from "../Dados";
+import Menu from "../Menu";
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route path="/loja" component={Loja} />
             <Route path="/inicial" component={TelaInicial} />
             <Route path="/dados" component={Dados} />
+            <Route path="/menu" component={Menu} />
           </Switch>
         </BrowserRouter>
       </div>
