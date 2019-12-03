@@ -13,8 +13,6 @@ export default class Cadastro extends React.Component {
     this.handleChange = handleInputChange.bind(this);
     this.db = firebase.database()
     this.auth = firebase.auth()
-
-    window.showComponentState = () => console.log(this.state);
   }
 
   state = {
