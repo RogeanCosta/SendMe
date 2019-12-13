@@ -11,6 +11,8 @@ import Avatar from "../Avatar";
 import Loja from "../Loja";
 import TelaInicial from "../TelaInicial";
 import Dados from "../Dados";
+import Carrinho from "../Carrinho";
+import Pagamentos from "../Pagamentos";
 
 class App extends Component {
   render() {
@@ -28,6 +30,8 @@ class App extends Component {
             <Route path="/loja" component={Loja} />
             <Route path="/inicial" component={TelaInicial} />
             <Route path="/dados" component={Dados} />
+            <Route path="/carrinho" component={Carrinho} />
+            <Route path="/pagamento" component={Pagamentos} /> 
           </Switch>
         </BrowserRouter>
       </div>

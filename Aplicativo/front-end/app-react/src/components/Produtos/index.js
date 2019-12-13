@@ -9,7 +9,25 @@ import './index.css'
 import firebase from "../../config/firebase"
 import chunk from "../../utils/chunk"
 
+class Acoes{
+  numero = 1;
+
+  setValue(value){
+    document.getElementsByClassName('quantidade').value = value;
+  }
+}
+
 export default class Produtos extends Component{
+  AdicionarAoCarrinho(){
+    alert('Produto adicionado ao carrinho');
+  }
+    
+  numero = 0;
+
+  Favoritar(){
+    if(this.numero == 0){}
+  }
+
   constructor(){
     super();
     this.db = firebase.database()
@@ -66,15 +84,20 @@ export default class Produtos extends Component{
                       R$ {produto.preco}
                   </Card.Text>
                   <div id="Quantidade">                
-                  <i className="icon-minus-sign"></i>
-                  <input type="tel" min="1" id="Quantity"></input>
-                  <i className="icon-plus-sign"></i>
+                  <select class="form">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
                   </div> 
                   <br/>
-                  <i className="icon-heart-empty"></i>
+                  <button><i className="icon-heart-empty"></i></button>
                 </Card.Body>
                 <Card.Footer>
-                  <Button variant="success"><i className="icon-shopping-cart"></i> Adicionar ao Carrinho</Button>
+                  <Button variant="success" onClick={() => this.AdicionarAoCarrinho()}><i className="icon-shopping-cart"></i> Adicionar ao Carrinho</Button>
                 </Card.Footer>
               </Card>
             </Col>
