@@ -18,7 +18,7 @@ export default class TelaInicial extends Component {
 
     componentDidMount() {
         this.db.ref('lojas').on("value", snapshot => {
-            let lojas = snapshot.val();
+            let lojas = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key }));
             this.setState({ lojas })
         });
     }

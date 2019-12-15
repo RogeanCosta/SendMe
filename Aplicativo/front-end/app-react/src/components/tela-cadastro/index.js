@@ -37,16 +37,17 @@ export default class Cadastro extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const { confirmaEmail, confirmaSenha, senha, ...newUser } = this.state;
-    this.db.ref('usuarios').push().set(newUser);
-
     this.auth
       .createUserWithEmailAndPassword(this.state.email, this.state.senha)
-      .then(() => {
+      .then(({ user }) => {
+        const { confirmaEmail, confirmaSenha, senha, ...newUser } = this.state;
+        this.db.ref('usuarios').push().set({ ...newUser, _uid: user.uid });
+
         alert('Usuário adicionado com sucesso!');
+
         this.props.history.push('/inicial');
       })
-      .catch(function(error) {
+      .catch(function (error) {
         alert('Erro ao criar usuário!')
         console.log(error.code, "-", error.message);
       });
