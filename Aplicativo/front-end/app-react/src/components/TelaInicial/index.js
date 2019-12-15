@@ -27,7 +27,7 @@ export default class TelaInicial extends Component {
         const decks = chunk(this.state.lojas, 5);
         return decks.map(deck => (
             <Fragment>
-                <div className="jumbotron vertical-center">
+                <div className="jumbotron vertical-center" id= "centralizarLojas">
                     <div className="container">
                         <Row id = "linhaLojas" >
                             {deck.map(lojas => (

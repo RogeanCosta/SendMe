@@ -12,6 +12,7 @@ import Loja from "../Loja";
 import TelaInicial from "../TelaInicial";
 import Dados from "../Dados";
 import firebase from "../../config/firebase"
+import Menu from "../Menu";
 
 class App extends Component {
   state = {
@@ -34,18 +35,50 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path="/" exact={true} component={Home} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={Login}/>
             <Route path="/recuperarsenha" component={RecuperarSenha} />
-            <Route path="/cadastro" component={Cadastro} />
-            <Route
-              path='/produtos'
-              render={props => <Produtos {...props} currentUser={this.state.currentUser} />}
-            />
-            <Route path="/help" component={Help} />
-            <Route path="/avatar" component={Avatar} />
-            <Route path="/loja" component={Loja} />
-            <Route path="/inicial" component={TelaInicial} />
-            <Route path="/dados" component={Dados} />
+            <Route path="/cadastro" render={() =>
+                  <div>
+                    <Menu />
+                    <Cadastro />
+                  </div>
+                } />
+            <Route path="/produtos" render={props =>
+                  <div>
+                    <Menu />
+                    <Produtos {...props} currentUser={this.state.currentUser} />
+                  </div>
+                } />/>
+            <Route path="/help" render={() =>
+                  <div>
+                    <Menu />
+                    <Help />
+                  </div>
+                } />/>
+            <Route path="/avatar" render={() =>
+                  <div>
+                    <Menu />
+                    <Avatar />
+                  </div>
+                } />/>
+            <Route path="/loja" render={() =>
+                  <div>
+                    <Menu />
+                    <Loja />
+                  </div>
+                } />/>
+            <Route path="/inicial" render={() =>
+                  <div>
+                    <Menu />
+                    <TelaInicial />
+                  </div>
+                } />/>
+            <Route path="/dados" render={() =>
+                  <div>
+                    <Menu />
+                    <Dados />
+                  </div>
+                } />/>
           </Switch>
         </BrowserRouter>
       </div>
