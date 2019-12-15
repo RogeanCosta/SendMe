@@ -11,9 +11,24 @@ import Avatar from "../Avatar";
 import Loja from "../Loja";
 import TelaInicial from "../TelaInicial";
 import Dados from "../Dados";
+import firebase from "../../config/firebase"
 import Menu from "../Menu";
 
 class App extends Component {
+  state = {
+    currentUser: null
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if (currentUser) {
+        return this.setState({ currentUser });
+      }
+
+      this.setState({ currentUser: null });
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -28,10 +43,10 @@ class App extends Component {
                     <Cadastro />
                   </div>
                 } />
-            <Route path="/produtos" render={() =>
+            <Route path="/produtos" render={props =>
                   <div>
                     <Menu />
-                    <Produtos />
+                    <Produtos {...props} currentUser={this.state.currentUser} />
                   </div>
                 } />/>
             <Route path="/help" render={() =>
