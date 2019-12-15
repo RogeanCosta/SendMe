@@ -20,16 +20,50 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path="/" exact={true} component={Home} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={Login}/>
             <Route path="/recuperarsenha" component={RecuperarSenha} />
-            <Route path="/cadastro" component={Cadastro} />
-            <Route path="/produtos" component={Produtos} />
-            <Route path="/help" component={Help} />
-            <Route path="/avatar" component={Avatar} />
-            <Route path="/loja" component={Loja} />
-            <Route path="/inicial" component={TelaInicial} />
-            <Route path="/dados" component={Dados} />
-            <Route path="/menu" component={Menu} />
+            <Route path="/cadastro" render={() =>
+                  <div>
+                    <Menu />
+                    <Cadastro />
+                  </div>
+                } />
+            <Route path="/produtos" render={() =>
+                  <div>
+                    <Menu />
+                    <Produtos />
+                  </div>
+                } />/>
+            <Route path="/help" render={() =>
+                  <div>
+                    <Menu />
+                    <Help />
+                  </div>
+                } />/>
+            <Route path="/avatar" render={() =>
+                  <div>
+                    <Menu />
+                    <Avatar />
+                  </div>
+                } />/>
+            <Route path="/loja" render={() =>
+                  <div>
+                    <Menu />
+                    <Loja />
+                  </div>
+                } />/>
+            <Route path="/inicial" render={() =>
+                  <div>
+                    <Menu />
+                    <TelaInicial />
+                  </div>
+                } />/>
+            <Route path="/dados" render={() =>
+                  <div>
+                    <Menu />
+                    <Dados />
+                  </div>
+                } />/>
           </Switch>
         </BrowserRouter>
       </div>
