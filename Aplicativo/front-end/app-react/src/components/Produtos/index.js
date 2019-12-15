@@ -18,7 +18,25 @@ export default class Produtos extends Component {
 
   state = {
     produtos: [],
-    favoritos: []
+    favoritos: [],
+    currentUser: null
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser) {
+      this.db.ref('usuarios').orderByChild("_uid").equalTo(nextProps.currentUser.uid).on("value", snapshot => {
+        const [userId, userData] = Object.entries(snapshot.val())[0];
+        const currentUser = { ...userData, _id: userId };
+        if (currentUser) {
+          if (currentUser.favoritos) {
+            const favoritos = Object.values(currentUser.favoritos).map(favorito => favorito.produtoId);
+            this.setState({ currentUser, favoritos });
+          } else {
+            this.setState({ currentUser });
+          }
+        }
+      });
+    }
   }
 
   componentDidMount() {
@@ -91,12 +109,21 @@ export default class Produtos extends Component {
     });
   };
 
-  renderIconeFavoritos = produto => {
-    // if (true) {
-    //   return <i className="icon-heart" />
-    // }
+  adicionarFavorito = produto => {
+    if (this.state.currentUser) {
+      this.setState(prevState => ({ favoritos: [...prevState.favoritos, produto._id] }))
 
-    return <i className="icon-heart-empty" />
+      const ref = this.db.ref(`usuarios/${this.state.currentUser._id}/favoritos`).push();
+      ref.set({ produtoId: produto._id });
+    }
+  }
+
+  renderIconeFavoritos = produto => {
+    if (this.state.favoritos.includes(produto._id)) {
+      return <i className="icon-heart" />
+    }
+
+    return <i className="icon-heart-empty" onClick={() => this.adicionarFavorito(produto)} />
   }
 
   renderProdutos = () => {

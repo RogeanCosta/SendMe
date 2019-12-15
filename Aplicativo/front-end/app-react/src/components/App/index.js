@@ -11,8 +11,23 @@ import Avatar from "../Avatar";
 import Loja from "../Loja";
 import TelaInicial from "../TelaInicial";
 import Dados from "../Dados";
+import firebase from "../../config/firebase"
 
 class App extends Component {
+  state = {
+    currentUser: null
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(currentUser => {
+      if (currentUser) {
+        return this.setState({ currentUser });
+      }
+
+      this.setState({ currentUser: null });
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -22,7 +37,10 @@ class App extends Component {
             <Route path="/login" component={Login} />
             <Route path="/recuperarsenha" component={RecuperarSenha} />
             <Route path="/cadastro" component={Cadastro} />
-            <Route path="/produtos" component={Produtos} />
+            <Route
+              path='/produtos'
+              render={props => <Produtos {...props} currentUser={this.state.currentUser} />}
+            />
             <Route path="/help" component={Help} />
             <Route path="/avatar" component={Avatar} />
             <Route path="/loja" component={Loja} />
