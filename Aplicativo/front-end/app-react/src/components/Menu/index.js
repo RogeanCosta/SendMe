@@ -2,8 +2,12 @@ import Navbar from 'react-bootstrap/Navbar'
 import React from "react";
 import "./menu.css";
 import { Button, Nav, Form, Dropdown } from 'react-bootstrap'
+import { Component } from "react";
 
-export default () => (
+
+class Menu extends Component {
+  render(){
+    return ( 
   <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="#home">SendMe</Navbar.Brand>
     <Nav >
@@ -34,8 +38,9 @@ export default () => (
           <Dropdown.Item href="#/action-3">meus pedidos</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-
-
-
   </Navbar >
 );
+    }
+}
+
+  export default Menu;
