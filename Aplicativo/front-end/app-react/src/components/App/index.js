@@ -13,6 +13,7 @@ import TelaInicial from "../TelaInicial";
 import Dados from "../Dados";
 import firebase from "../../config/firebase"
 import Menu from "../Menu";
+import Carrinho from "../Carrinho"
 
 class App extends Component {
   state = {
@@ -34,6 +35,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <Switch>
+            <Route path="/carrinho" component={Carrinho}/>
             <Route path="/" exact={true} component={Home} />
             <Route path="/login" component={Login}/>
             <Route path="/recuperarsenha" component={RecuperarSenha} />
