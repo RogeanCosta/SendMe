@@ -51,13 +51,6 @@ export default class TelaInicial extends Component {
                             <button id="buttonAvatar" class="btn btn-primary btn-circle btn-xl" style={{ backgroundImage: "url('/images/usertest')" }}> </button>
                         </div>
                     </div>
-                    <div className="col-1">
-                        <div className="item" id="carrinho">
-                            <button type="buttonCarrinho" class="btn btn-secondary btn-sm">carrinho
-                            <i className="icon-shopping-cart"></i>
-                            </button> </div>
-
-                    </div>
                 </div>
                 <p className="text-md-center">Selecione o supermercado</p>
                 {this.renderLojas()}
