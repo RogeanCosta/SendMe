@@ -16,7 +16,7 @@ let transporter = nodemailer.createTransport(url);
 
 exports.enviarEmail = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
-    let remetente = '"Adson Rocha" <xtrsmk@gmail.com>';
+    /*let remetente = '"Adson Rocha" <xtrsmk@gmail.com>';
 
     let assunto = req.body['assunto'];
     let destinatarios = req.body['destinatarios']; // lista de e-mails destinatarios separados por ,
@@ -29,13 +29,23 @@ exports.enviarEmail = functions.https.onRequest((req, res) => {
         subject: assunto,
         text: corpo,
         html: corpoHtml
-    };
+    };*/
 
-    transporter.sendMail(email, (error, info) => {
+
+    var message = {
+      from: 'xtrsmk@gmail.com',
+      to: 'xtrsmk@gmail.com',
+      subject: 'Mais um Pedido SendMe',
+      text: 'Issso é um texto!'
+  };
+  
+
+    transporter.sendMail(message, (error, info) => {
         if (error) {
           return console.log(error);
         }
         console.log('Mensagem %s enviada: %s', info.messageId, info.response);
+        res.send('Sent')
     });
   });
 });

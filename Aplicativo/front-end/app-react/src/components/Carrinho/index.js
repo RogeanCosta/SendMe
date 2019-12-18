@@ -1,128 +1,73 @@
-import React,{Component} from 'react'
-import Card from 'react-bootstrap/Card'
-import CardDeck from 'react-bootstrap/CardDeck'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
-import './index.css'
 import firebase from "../../config/firebase"
-import chunk from "../../utils/chunk"
 import Table from 'react-bootstrap/Table'
 
-export default class Carrinho extends React.Component{
-    handleClick() {
-        this.setState({
-          clicked: true
+import './index.css'
+
+export default class Carrinho extends Component {
+  constructor() {
+    super();
+    this.db = firebase.database();
+  }
+
+  state ={
+    carrinho: []
+  }
+
+  componentDidMount() {
+    const { user } = this.props.location.state;
+    if (user.carrinho) {
+      this.db.ref('produtos').on("value", snapshot => {
+        let todosProdutos = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key }));
+        const carrinho = user.carrinho.map(el => {
+          const produto = todosProdutos.find(p => p._id === el.produtoId);
+          return { ...produto, quantidade: el.quantidade }
         });
-      }
 
+        this.setState({ carrinho })
+      });
+    };
+  }
 
-
-
-
-
-
-      constructor(){
-        super();
-        this.db = firebase.database()
-      }
-      
-      state = {
-        produtos: []
-      }
-      
-      componentDidMount(){
-        this.db.ref('produtos').on("value", snapshot => {
-         
-          let produtos = snapshot.val();
-    
-          if(this.props.location.query && this.props.location.query.categoria) {
-            const categoria = this.props.location.query.categoria;
-            if(categoria){
-              produtos = snapshot.val().filter(produto => produto.tipo === categoria);
-            }
-          }
-    
-          this.setState({produtos})
-        });
-      }
-    
-      renderProdutos = () => {
-        if (!this.state.produtos.length) {
-          return (
-            <div style={{marginTop: '10px'}}>
-            <Row>
-            <Col sm="10" className="offset-sm-1">
-              <Alert variant='warning'>
-                Nenhum produto para esta categoria!
-              </Alert>
-              </Col>
-            </Row>
-            </div>
-          )
+  renderCarrinho() {
+    var number = 1
+    return (<Table striped bordered hover variant="dark" id="basket">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+          <th>Excluir Item</th>
+        </tr>
+      </thead>
+      <tbody>
+        {this.state.carrinho.map(produto => (<tr>
+          <th>{number++}</th>
+          <th>{produto.nome}</th>
+          <th>{produto.quantidade}</th>
+          <th>{produto.preco}</th>
+          <th><Button variant="danger" id="rm">Remover do Carrinho</Button></th>
+        </tr>))
         }
-    
-        const decks = chunk(this.state.produtos, 3);
-        
-        return decks.map(deck => (
-          <div>
-            <Row>
-            <CardDeck>
-              {deck.map(produto => (
-                  <Table striped bordered hover variant="dark">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                        <td>{produto.nome}</td>
-                      <td>{produto.preco}</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td colSpan="2">Larry the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
-                  </tbody>
-                </Table>
-              ))}
-            </CardDeck>
-            </Row>
-          </div>
-        ));
-      }
-    
+      </tbody>
+    </Table>
+    );
+  }
 
-
-
-
-
-
-
-
-
-    render(){
-        return(
-            <div>
-                <div id="Presentation">
-                    <h1>Carrinho de Compras</h1>
-                </div>
-                    {this.renderProdutos()}
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="u-release">
+        <div id="presentation">
+          <h1>Carrinho de Compras</h1>
+        </div>
+        {this.renderCarrinho()}
+        <div id="lucros">
+          <Button id="dinheiro" variant="success">Ir para o Pagamento</Button>
+          <Button id="volta" variant="danger">voltar as Compras</Button>
+        </div>
+      </div>
+    );
+  }
 }

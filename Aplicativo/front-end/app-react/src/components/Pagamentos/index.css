@@ -115,8 +115,9 @@ svg{
 
 #pedir{
     position: relative;
-    top: 3cm;
-    margin-right: 1cm;
+    top: -1cm;
+    margin-right: 3cm;
+    left: 6cm;
 }
 
 #nonpedir{

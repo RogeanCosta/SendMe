@@ -8,6 +8,11 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import Button from 'react-bootstrap/Button'
 
 export default class Pagamentos extends React.Component {
+    pararloop(){
+        alert("mensagem enviada com sucesso");
+        window.location.reload();
+    }
+
 
     render() {
         return (
@@ -101,20 +106,10 @@ export default class Pagamentos extends React.Component {
                         </Form.Group>
                     </Form.Row>
                     <div id="conclusao">
-                        <Button variant="success" id="pedir">Finalizar Pedido</Button>
                         <Button variant="danger" id="nonpedir">Cancelar</Button>
                     </div>
-                    <form action="https://us-central1-sendme-a0d34.cloudfunctions.net/enviarEmail" method="post">
-                        <label>Assunto:</label>
-                        <input type="text" name="assunto" />
-
-                        <label>Destinatários:</label>
-                        <input type="text" name="destinatarios" />
-
-                        <label>Mensagem:</label>
-                        <input type="text" name="corpo" />
-
-                        <button type="submit">Enviar</button>
+                    <form action="https://us-central1-sendme-a0d34.cloudfunctions.net/enviarEmail" method="post" id="pedir">
+                        <Button type="submit" variant="success" id="pedir">Finalizar Pedido</Button>
                     </form>
                 </div>
             </div>
