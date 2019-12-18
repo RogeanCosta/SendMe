@@ -11,7 +11,7 @@ export default class Carrinho extends Component {
     this.db = firebase.database();
   }
 
-  state = {
+  state ={
     carrinho: []
   }
 
@@ -39,6 +39,7 @@ export default class Carrinho extends Component {
           <th>Produto</th>
           <th>Quantidade</th>
           <th>Preço</th>
+          <th>Excluir Item</th>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +48,7 @@ export default class Carrinho extends Component {
           <th>{produto.nome}</th>
           <th>{produto.quantidade}</th>
           <th>{produto.preco}</th>
+          <th><Button variant="danger" id="rm">Remover do Carrinho</Button></th>
         </tr>))
         }
       </tbody>
