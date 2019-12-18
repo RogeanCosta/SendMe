@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Login.css";
 import handleInputChange from "../../utils/handleInputChange";
 import firebase from "../../config/firebase";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   constructor() {
@@ -16,6 +17,10 @@ class Login extends Component {
     senha: ""
   };
 
+  componentDidMount() {
+    this.auth.signOut();
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     this.auth
@@ -24,7 +29,7 @@ class Login extends Component {
         alert('Usuário logado com sucesso!');
         this.props.history.push('/inicial');
       })
-      .catch(function(error) {
+      .catch(function (error) {
         alert('Usuário e senha incorretos!');
         console.log(error.code, "-", error.message);
       });
@@ -74,7 +79,7 @@ class Login extends Component {
 
                     <div className="row">
                       <div className="col-md-12 text-center">
-                        <button type="button" className="btn btn-link">
+                        <button type="button" className="btn btn-link" onClick={() => this.props.history.push('/recuperarsenha')}>
                           Esqueci minha senha
                         </button>
                       </div>
@@ -111,4 +116,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

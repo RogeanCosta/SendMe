@@ -1,19 +1,14 @@
 import React, { Component } from 'react'
-import Card from 'react-bootstrap/Card'
-import CardDeck from 'react-bootstrap/CardDeck'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
-import './index.css'
 import firebase from "../../config/firebase"
-import chunk from "../../utils/chunk"
 import Table from 'react-bootstrap/Table'
 
-export default class Carrinho extends React.Component {
+import './index.css'
+
+export default class Carrinho extends Component {
   constructor() {
     super();
-    this.db = firebase.database()
+    this.db = firebase.database();
   }
 
   state = {
@@ -21,36 +16,42 @@ export default class Carrinho extends React.Component {
   }
 
   componentDidMount() {
-    this.db.ref('produtos').on("value", snapshot => {
-      let carrinho = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key }));
-      this.setState({ carrinho })
-    });
-  }
+    const { user } = this.props.location.state;
+    if (user.carrinho) {
+      this.db.ref('produtos').on("value", snapshot => {
+        let todosProdutos = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key }));
+        const carrinho = user.carrinho.map(el => {
+          const produto = todosProdutos.find(p => p._id === el.produtoId);
+          return { ...produto, quantidade: el.quantidade }
+        });
 
+        this.setState({ carrinho })
+      });
+    };
+  }
 
   renderCarrinho() {
     var number = 1
-    const decks = chunk(this.state.carrinho, 30);
-    return decks.map(deck => (
-      <Table striped bordered hover variant="dark" id="basket">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Preço</th>
-          </tr>
-        </thead>
-        {deck.map(carrinho => (<tr>
+    return (<Table striped bordered hover variant="dark" id="basket">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        {this.state.carrinho.map(produto => (<tr>
           <th>{number++}</th>
-          <th>{carrinho.nome}</th>
-          <th>1</th>
-          <th>{carrinho.preco}</th>
+          <th>{produto.nome}</th>
+          <th>{produto.quantidade}</th>
+          <th>{produto.preco}</th>
         </tr>))
         }
-
-      </Table>
-    ));
+      </tbody>
+    </Table>
+    );
   }
 
   render() {
@@ -61,7 +62,7 @@ export default class Carrinho extends React.Component {
         </div>
         {this.renderCarrinho()}
         <div id="lucros">
-          <Button  id="dinheiro" variant="success">Ir para o Pagamento</Button>
+          <Button id="dinheiro" variant="success">Ir para o Pagamento</Button>
           <Button id="volta" variant="danger">voltar as Compras</Button>
         </div>
       </div>
