@@ -1,46 +1,78 @@
 import Navbar from 'react-bootstrap/Navbar'
 import React from "react";
 import "./menu.css";
-import { Button, Nav, Form, Dropdown } from 'react-bootstrap'
+import firebase from "../../config/firebase"
+import { Button, Nav, Dropdown } from 'react-bootstrap'
 import { Component } from "react";
-
+import { withRouter } from "react-router-dom";
 
 class Menu extends Component {
-  render(){
-    return ( 
-  <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">SendMe</Navbar.Brand>
-    <Nav >
-      <Nav.Link href="#home">Home</Nav.Link>
-      </Nav>
-      {/* <div class="col-md-2 col-sm-4" id= "div1"><Form.Control type="text" id="CampoPesquisar" placeholder="Pesquisar" ></Form.Control>
-      </div>
+  constructor() {
+    super();
+    this.db = firebase.database();
+  }
 
-      <div class="col-md-2 col-sm-4" ><Button id="botaoPesquisar" variant="primary">Pesquisar
-      <i className="icon-search" id="iconMenu"></i>
-      </Button>
+  handleClickCarrinho = () => {
+    this.db.ref('usuarios').orderByChild("_uid").equalTo(this.props.user.uid).on("value", snapshot => {
+      const [userId, userData] = Object.entries(snapshot.val())[0];
 
-      </div> */}
+      let carrinho = [];
+      if (userData.carrinho) {
+        carrinho = Object.values(userData.carrinho);
+      }
 
-      <div class="col-md-2 col-sm-4"><Button id="botaoCarrinho" variant="primary">Carrinho
-      <i className="icon-shopping-cart" id="iconMenu"></i>
-      </Button>
-      </div>
+      this.props.history.push({
+        pathname: '/carrinho',
+        state: {
+          user: { _id: userId, carrinho }
+        }
+      });
+    });
+  }
 
-      <Dropdown>
-        <Dropdown.Toggle variant="primary" id="dropdown-basic">
-          Usuário
+  handleClickAtualizarCadastro = () => {
+    this.props.history.push({
+      pathname: '/cadastro',
+      state: {
+        userId: this.props.user.uid
+      }
+    });
+  }
 
-  </Dropdown.Toggle>
-        <Dropdown.Menu id="dropdown-basic">
-          <Dropdown.Item href="#/action-1">atualizar cadastro</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">meus dados</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">meus pedidos</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-  </Navbar >
-);
-    }
+  handleClickSair = () => {
+    this.props.history.push('/login');
+  }
+
+  handleClickHome = () => {
+    this.props.history.push('/inicial');
+  }
+
+  render() {
+    return (
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand onClick={this.handleClickHome}>SendMe</Navbar.Brand>
+        <Nav >
+          <Nav.Link onClick={this.handleClickHome}>Home</Nav.Link>
+        </Nav>
+
+        <div className="col-md-2 col-sm-4">
+          <Button id="botaoCarrinho" variant="primary" onClick={this.handleClickCarrinho}>Carrinho
+          <i className="icon-shopping-cart" id="iconMenu" />
+          </Button>
+        </div>
+
+        <Dropdown>
+          <Dropdown.Toggle variant="primary" id="dropdown-basic">
+            Usuário
+          </Dropdown.Toggle>
+          <Dropdown.Menu id="dropdown-basic">
+            <Dropdown.Item onClick={this.handleClickAtualizarCadastro}>Atualizar cadastro</Dropdown.Item>
+            <Dropdown.Item onClick={this.handleClickSair}>Sair</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Navbar >
+    );
+  }
 }
 
-  export default Menu;
+export default withRouter(Menu);
