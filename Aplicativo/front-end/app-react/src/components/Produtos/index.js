@@ -19,23 +19,32 @@ export default class Produtos extends Component {
   state = {
     produtos: [],
     favoritos: [],
+    carrinho: [],
     currentUser: null
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser) {
-      this.db.ref('usuarios').orderByChild("_uid").equalTo(nextProps.currentUser.uid).on("value", snapshot => {
-        const [userId, userData] = Object.entries(snapshot.val())[0];
-        const currentUser = { ...userData, _id: userId };
-        if (currentUser) {
+      if (!this.state.currentUser) {
+        this.db.ref('usuarios').orderByChild("_uid").equalTo(nextProps.currentUser.uid).on("value", snapshot => {
+          const [userId, userData] = Object.entries(snapshot.val())[0];
+          const currentUser = { ...userData, _id: userId };
+          let favoritos = null;
+          let carrinho = null;
+
           if (currentUser.favoritos) {
-            const favoritos = Object.values(currentUser.favoritos).map(favorito => favorito.produtoId);
-            this.setState({ currentUser, favoritos });
-          } else {
-            this.setState({ currentUser });
+            favoritos = Object.entries(currentUser.favoritos).map(([key, value]) => ({ ...value, _id: key }))
           }
-        }
-      });
+
+          if (currentUser.carrinho) {
+            carrinho = Object.entries(currentUser.carrinho).map(([key, value]) => ({ ...value, _id: key }))
+          }
+
+          this.setState({ currentUser, favoritos: favoritos || [], carrinho: carrinho || [] });
+        });
+      }
+    } else {
+      this.setState({ currentUser: null });
     }
   }
 
@@ -111,16 +120,44 @@ export default class Produtos extends Component {
 
   adicionarFavorito = produto => {
     if (this.state.currentUser) {
-      this.setState(prevState => ({ favoritos: [...prevState.favoritos, produto._id] }))
-
       const ref = this.db.ref(`usuarios/${this.state.currentUser._id}/favoritos`).push();
       ref.set({ produtoId: produto._id });
     }
   }
 
+  removerFavorito = produto => {
+    if (this.state.currentUser) {
+      const index = this.state.favoritos.findIndex(el => el.produtoId === produto._id)
+      const ref = this.db.ref(`usuarios/${this.state.currentUser._id}/favoritos`);
+      ref.child(this.state.favoritos[index]._id).remove();
+    }
+  }
+
+  adicionarProdutoCarrinho = produto => {
+    if (this.state.currentUser) {
+      if (!produto.quantidade) {
+        return alert('Informe a quantidade do produto que deseja adicionar ao carrinho!');
+      }
+
+      const item = this.state.carrinho.find(el => el.produtoId === produto._id);
+      if (item) {
+        const ref = this.db.ref(`usuarios/${this.state.currentUser._id}/carrinho/${item._id}`);
+        ref.update({ quantidade: item.quantidade + produto.quantidade }, () => {
+          alert('Produto adicionado ao carrinho!');
+        });
+      } else {
+        const ref = this.db.ref(`usuarios/${this.state.currentUser._id}/carrinho`).push();
+        ref.set({ produtoId: produto._id, quantidade: produto.quantidade }, () => {
+          alert('Produto adicionado ao carrinho!');
+        });
+      }
+    }
+  }
+
   renderIconeFavoritos = produto => {
-    if (this.state.favoritos.includes(produto._id)) {
-      return <i className="icon-heart" />
+    const index = this.state.favoritos.findIndex(el => el.produtoId === produto._id);
+    if (index !== -1) {
+      return <i className="icon-heart" onClick={() => this.removerFavorito(produto)} />
     }
 
     return <i className="icon-heart-empty" onClick={() => this.adicionarFavorito(produto)} />
@@ -165,7 +202,9 @@ export default class Produtos extends Component {
                     {this.renderIconeFavoritos(produto)}
                   </Card.Body>
                   <Card.Footer>
-                    <Button variant="success"><i className="icon-shopping-cart"></i> Adicionar ao Carrinho</Button>
+                    <Button variant="success" type="button" onClick={() => this.adicionarProdutoCarrinho(produto)}>
+                      <i className="icon-shopping-cart" /> Adicionar ao Carrinho
+                    </Button>
                   </Card.Footer>
                 </Card>
               </Col>

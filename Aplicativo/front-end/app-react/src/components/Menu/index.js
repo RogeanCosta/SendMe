@@ -13,14 +13,14 @@ class Menu extends Component {
     <Nav >
       <Nav.Link href="#home">Home</Nav.Link>
       </Nav>
-      <div class="col-md-2 col-sm-4" id= "div1"><Form.Control type="text" id="CampoPesquisar" placeholder="Pesquisar" ></Form.Control>
+      {/* <div class="col-md-2 col-sm-4" id= "div1"><Form.Control type="text" id="CampoPesquisar" placeholder="Pesquisar" ></Form.Control>
       </div>
 
       <div class="col-md-2 col-sm-4" ><Button id="botaoPesquisar" variant="primary">Pesquisar
       <i className="icon-search" id="iconMenu"></i>
       </Button>
 
-      </div>
+      </div> */}
 
       <div class="col-md-2 col-sm-4"><Button id="botaoCarrinho" variant="primary">Carrinho
       <i className="icon-shopping-cart" id="iconMenu"></i>
