@@ -39,6 +39,7 @@ export default class Carrinho extends React.Component {
             <th>Produto</th>
             <th>Quantidade</th>
             <th>Preço</th>
+            <th>Excluir Item</th>
           </tr>
         </thead>
         {deck.map(carrinho => (<tr>
@@ -46,6 +47,7 @@ export default class Carrinho extends React.Component {
           <th>{carrinho.nome}</th>
           <th>1</th>
           <th>{carrinho.preco}</th>
+          <th><Button variant="danger" id="rm">Remover do Carrinho</Button></th>
         </tr>))
         }
 
