@@ -5,56 +5,69 @@ import './telaInicial.css'
 import firebase from "../../config/firebase"
 import chunk from "../../utils/chunk"
 import Row from 'react-bootstrap/Row'
+import { withRouter } from "react-router-dom";
 
-export default class TelaInicial extends Component {
-    constructor() {
-        super();
-        this.db = firebase.database()
-    }
+class TelaInicial extends Component {
+  constructor() {
+    super();
+    this.db = firebase.database()
+  }
 
-    state = {
-        lojas: []
-    }
+  state = {
+    lojas: []
+  }
 
-    componentDidMount() {
-        this.db.ref('lojas').on("value", snapshot => {
-            let lojas = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key }));
-            this.setState({ lojas })
-        });
-    }
+  componentDidMount() {
+    this.db.ref('lojas').on("value", snapshot => {
+      let lojas = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key }));
+      this.setState({ lojas })
+    });
+  }
 
-    renderLojas() {
-        const decks = chunk(this.state.lojas, 5);
-        return decks.map(deck => (
-            <Fragment>
-                <div className="jumbotron vertical-center" id= "centralizarLojas">
-                    <div className="container">
-                        <Row id = "linhaLojas" >
-                            {deck.map(lojas => (
-                                <Col sm="2" >
-                                    <button id="button1" class="btn btn-primary btn-circle btn-xl mr-5" style={{ backgroundImage: `url("${lojas.imagem}")` }} > </button>
-                                </Col>
-                            ))
-                            }
-                            </Row>
-                         </div>
-                </div>
-            </Fragment>
-        ));
-    }
-    render() {
-        return (
-            <div className="container ">
-                <div className="row " id="rowUser" >
-                    <div className="col-1" id="colUser">
-                        <div className="item" id="user">
-                            <button id="buttonAvatar" class="btn btn-primary btn-circle btn-xl" style={{ backgroundImage: "url('/images/usertest')" }}> </button>
-                        </div>
-                    </div>
-                </div>
-                <p className="text-md-center">Selecione o supermercado</p>
-                {this.renderLojas()}
+  renderLojas() {
+    const decks = chunk(this.state.lojas, 5);
+    return decks.map(deck => (
+      <Fragment>
+        <div className="jumbotron vertical-center" id="centralizarLojas">
+          <div className="container">
+            <Row id="linhaLojas" >
+              {deck.map(lojas => (
+                <Col sm="2">
+                  <button
+                    id="button1"
+                    className="btn btn-primary btn-circle btn-xl mr-5"
+                    style={{ backgroundImage: `url("${lojas.imagem}")` }}
+                    onClick={() => this.props.history.push({
+                      pathname: '/loja',
+                      state: {
+                        lojaId: lojas._id,
+                        userId: this.props.userId
+                      }
+                    })} />
+                </Col>
+              ))
+              }
+            </Row>
+          </div>
+        </div>
+      </Fragment>
+    ));
+  }
+  render() {
+    return (
+      <div className="container ">
+        <div className="row " id="rowUser" >
+          <div className="col-1" id="colUser">
+            <div className="item" id="user">
+              <button id="buttonAvatar" className="btn btn-primary btn-circle btn-xl" style={{ backgroundImage: "url('/images/usertest')" }}> </button>
             </div>
-        );
-    }
+          </div>
+        </div>
+        <p className="text-md-center">Selecione o supermercado</p>
+        {this.renderLojas()}
+      </div>
+    );
+  }
 }
+
+export default withRouter(TelaInicial)
