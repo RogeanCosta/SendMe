@@ -16,21 +16,32 @@ export default class Carrinho extends React.Component {
     this.db = firebase.database()
   }
 
-  state = {
-    carrinho: []
+  state ={
+    currentUser : null
   }
 
-  componentDidMount() {
-    this.db.ref('produtos').on("value", snapshot => {
-      let carrinho = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key }));
-      this.setState({ carrinho })
-    });
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser) {
+      this.db.ref('usuarios').orderByChild("_uid").equalTo(nextProps.currentUser.uid).on("value", snapshot => {
+        const [userId, userData] = Object.entries(snapshot.val())[0];
+        const currentUser = { ...userData, _id: userId };
+        if (currentUser) {
+          if (currentUser.carrinho) {
+            const carrinho = Object.values(currentUser.carrinho).map(carrinho => carrinho.produtoId);
+            this.setState({ currentUser, carrinho });
+          } else {
+            this.setState({ currentUser });
+          }
+        }
+      });
+    }
   }
 
+  ref = this.db.ref(`usuarios/${this.state.currentUser._id}/carrinho`)
 
   renderCarrinho() {
     var number = 1
-    const decks = chunk(this.state.carrinho, 30);
+    const decks = chunk(this.ref, 30);
     return decks.map(deck => (
       <Table striped bordered hover variant="dark" id="basket">
         <thead>
@@ -42,11 +53,11 @@ export default class Carrinho extends React.Component {
             <th>Excluir Item</th>
           </tr>
         </thead>
-        {deck.map(carrinho => (<tr>
+        {deck.map(ref => (<tr>
           <th>{number++}</th>
-          <th>{carrinho.nome}</th>
+          <th>{ref.nome}</th>
           <th>1</th>
-          <th>{carrinho.preco}</th>
+          <th>{ref.preco}</th>
           <th><Button variant="danger" id="rm">Remover do Carrinho</Button></th>
         </tr>))
         }
