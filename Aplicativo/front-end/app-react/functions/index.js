@@ -45,7 +45,7 @@ exports.enviarEmail = functions.https.onRequest((req, res) => {
           return console.log(error);
         }
         console.log('Mensagem %s enviada: %s', info.messageId, info.response);
-        res.send('Sent')
+        res.redirect("back");
     });
   });
 });
