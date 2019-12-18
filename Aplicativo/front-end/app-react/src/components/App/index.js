@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Login from "../Login";
-import Home from "../Home";
 import Cadastro from "../tela-cadastro";
 import Produtos from "../Produtos";
 import Help from "../Help";
@@ -39,18 +38,18 @@ class App extends Component {
           {this.state.currentUser && <Menu user={this.state.currentUser} />}
           <Switch>
             <Route path="/carrinho" component={Carrinho} />
-            <Route path="/" exact={true} component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/recuperarsenha" component={RecuperarSenha} />
             <Route path="/cadastro" component={Cadastro} />
-            <Route path="/produtos" render={props => <Produtos {...props} currentUser={this.state.currentUser} />} />
+            <Route path="/produtos" component={Produtos} />
             <Route path="/help" component={Help} />
             <Route path="/avatar" component={Avatar} />
             <Route path="/loja" component={Loja} />
-            <Route path="/inicial" component={TelaInicial} />
+            <Route path="/inicial" render={props => <TelaInicial {...props} userId={this.state.currentUser ? this.state.currentUser.uid : null} />} />
             <Route path="/dados" component={Dados} />
             <Route path="/carrinho" component={Carrinho} />
             <Route path="/pagamento" component={Pagamentos} /> 
+            <Route component={Login} />
           </Switch>
         </BrowserRouter>
       </div>

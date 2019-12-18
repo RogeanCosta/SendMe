@@ -23,12 +23,12 @@ export default class Produtos extends Component {
     currentUser: null
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser) {
-      if (!this.state.currentUser) {
-        this.db.ref('usuarios').orderByChild("_uid").equalTo(nextProps.currentUser.uid).on("value", snapshot => {
-          const [userId, userData] = Object.entries(snapshot.val())[0];
-          const currentUser = { ...userData, _id: userId };
+  componentDidMount() {
+    if (this.props.location && this.props.location.query) {
+      if (this.props.location.query.userId) {
+        this.db.ref('usuarios').orderByChild("_uid").equalTo(this.props.location.query.userId).on("value", snapshot => {
+          const [usuarioId, userData] = Object.entries(snapshot.val())[0];
+          const currentUser = { ...userData, _id: usuarioId };
           let favoritos = null;
           let carrinho = null;
 
@@ -43,19 +43,18 @@ export default class Produtos extends Component {
           this.setState({ currentUser, favoritos: favoritos || [], carrinho: carrinho || [] });
         });
       }
-    } else {
-      this.setState({ currentUser: null });
     }
-  }
 
-  componentDidMount() {
     this.db.ref('produtos').on("value", snapshot => {
       let produtos = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key, quantidade: 0 }))
 
-      if (this.props.location.query && this.props.location.query.categoria) {
-        const categoria = this.props.location.query.categoria;
+      if (this.props.location.query) {
+        const { categoria, lojaId } = this.props.location.query;
         if (categoria) {
           produtos = produtos.filter(produto => produto.tipo === categoria);
+        }
+        if (lojaId) {
+          produtos = produtos.filter(produto => produto.loja === lojaId);
         }
       }
 
