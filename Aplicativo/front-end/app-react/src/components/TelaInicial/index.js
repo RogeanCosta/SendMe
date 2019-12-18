@@ -18,7 +18,7 @@ export default class TelaInicial extends Component {
 
     componentDidMount() {
         this.db.ref('lojas').on("value", snapshot => {
-            let lojas = snapshot.val();
+            let lojas = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key }));
             this.setState({ lojas })
         });
     }
@@ -27,7 +27,7 @@ export default class TelaInicial extends Component {
         const decks = chunk(this.state.lojas, 5);
         return decks.map(deck => (
             <Fragment>
-                <div className="jumbotron vertical-center">
+                <div className="jumbotron vertical-center" id= "centralizarLojas">
                     <div className="container">
                         <Row id = "linhaLojas" >
                             {deck.map(lojas => (
@@ -50,13 +50,6 @@ export default class TelaInicial extends Component {
                         <div className="item" id="user">
                             <button id="buttonAvatar" class="btn btn-primary btn-circle btn-xl" style={{ backgroundImage: "url('/images/usertest')" }}> </button>
                         </div>
-                    </div>
-                    <div className="col-1">
-                        <div className="item" id="carrinho">
-                            <button type="buttonCarrinho" class="btn btn-secondary btn-sm">carrinho
-                            <i className="icon-shopping-cart"></i>
-                            </button> </div>
-
                     </div>
                 </div>
                 <p className="text-md-center">Selecione o supermercado</p>

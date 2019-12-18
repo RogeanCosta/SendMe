@@ -1,0 +1,30 @@
+#basket{
+    width: 80%;
+    position: relative;
+    left: 3.5cm;
+    top: 2cm;
+}
+
+#rm{
+    position: relative;
+    left: 0.65cm;
+}
+      
+#presentation{
+    position: relative;
+    left: 0.75cm;
+    margin-top: 3cm;
+    border-bottom: 1px solid rgb(54, 53, 53);
+
+}
+
+#dinheiro, #volta{
+    margin-right: 1cm;
+    margin-bottom: 3cm;
+}
+
+#lucros{
+    text-align: center;
+    position: relative;
+    top: 3.5cm;
+}
