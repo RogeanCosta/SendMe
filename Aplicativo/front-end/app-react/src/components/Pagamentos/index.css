@@ -1,0 +1,136 @@
+#apresenta{
+    position: relative;
+    left: 0.75cm;
+    margin-top: 3cm;
+    border-bottom: 1px solid rgb(54, 53, 53);
+}
+
+#entrys{
+    position: relative;
+    top: 2cm;
+    width: 40%;
+    left: 7cm;
+}
+
+#EspecifyLabel{
+    position: relative;
+    right: 1.6cm;
+}
+
+#EntradaBairro{
+    width: 53%;
+    position: relative;
+    right: 1.6cm;
+}
+
+#CEPalinhado{
+    position: relative;
+    left: 3.6cm;
+}
+
+#EntradaCEP{
+    width: 30%;
+    left: 2cm;
+    position: relative;
+}
+
+#payment {
+    position: relative;
+    left: 5cm;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.u-release {
+    overflow-x: hidden;
+}
+
+#realinhar{
+    position: relative;
+    text-align: left;
+}
+
+#escolhas{
+    position: relative;
+    top: 2cm;
+    text-align: center;
+}
+
+#carton{
+    position: relative;
+    text-align: center;
+    margin-bottom: 6cm;
+    top: 4cm;
+}
+
+#carton1, #carton2{
+    width: 29%;
+}
+
+#carton3{
+    position: relative;
+    right: 0.22cm;
+}
+
+#carton4{
+    left: 0.22cm;
+    position: relative;
+}
+
+#carton1, #carton2, #carton3, #carton4, #carton5, #pedir, #nonpedir{
+    margin-bottom: 1cm;
+}
+
+#carton5{
+    width: 17%;
+    position: relative;
+    left: 9.5cm;
+    bottom: 0.75cm;
+}
+
+.icon-money{
+    position: relative;
+    bottom: 0.78cm;
+    left: 2cm;
+    font-size: 38px;
+}
+
+svg{
+    position: relative;
+    bottom: 0.78cm;
+    left: 2cm;
+    width: 42px;
+}
+
+#entrega{
+    margin-top: 2cm;
+    left: 2.5cm;
+    position: relative;
+}
+
+#conclusao{
+    text-align: center;
+    margin-bottom: 3cm;
+}
+
+#pedir{
+    position: relative;
+    top: -1cm;
+    margin-right: 3cm;
+    left: 6cm;
+}
+
+#nonpedir{
+    position: relative;
+    top: 3cm;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
