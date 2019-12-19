@@ -107,13 +107,13 @@ class Cadastro extends React.Component {
 
   render() {
     return (
+      <div className="container">
       <Form onSubmit={this.handleSubmit} onReset={this.handleReset}>
         <h1>{this.state.idUsuario ? 'Meus Dados' : 'Cadastro'}</h1>
-        <div id="Container">
           <Form.Row>
             <Form.Group as={Col} controlId="formGridNome">
               <Form.Label id="RogeanLabels">Nome Completo</Form.Label>
-              <Form.Control name="nome" type="text" placeholder="Digite seu nome" onChange={this.handleChange} value={this.state.nome} />
+              <Form.Control  name="nome" type="text" placeholder="Digite seu nome" onChange={this.handleChange} value={this.state.nome} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridNascimento">
@@ -145,11 +145,11 @@ class Cadastro extends React.Component {
               <Form.Control name="endereco" placeholder="Rua, Avenida..." onChange={this.handleChange} value={this.state.endereco} />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridComplemento">
-              <Form.Label id="RogeanLabels">Complemento</Form.Label>
+              <Form.Label id="RogeanLabelsComplemento">Complemento</Form.Label>
               <Form.Control name="complemento" placeholder="Bloco, Apt., Casa..." onChange={this.handleChange} value={this.state.complemento} />
             </Form.Group>
             <Form.Group as={Col} controlId="formGridNumero">
-              <Form.Label id="RogeanLabels">Numero</Form.Label>
+              <Form.Label id="RogeanLabelsNumero">Número</Form.Label>
               <Form.Control name="numero" placeholder="Ex. 1245" onChange={this.handleChange} value={this.state.numero} />
             </Form.Group>
           </Form.Row>
@@ -246,14 +246,16 @@ class Cadastro extends React.Component {
           <div id="buttons" className="buttons">
             <Button id="cadastrar" variant="success" type="submit">
               {this.state.idUsuario ? 'Atualizar' : 'Cadastrar'}
-            </Button>
+              </Button>
+              
 
-            <Button variant="danger" type="reset">
+            <Button variant="danger" type="reset" id="cancelar">
               Cancelar
               </Button>
           </div>
-        </div>
+
       </Form>
+      </div>
     );
   }
 }
