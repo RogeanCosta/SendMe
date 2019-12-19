@@ -5,6 +5,12 @@
     text-align: center;
 }
 
+#Cntr{
+    position: relative;
+    top: 55px;
+    left: -1cm;
+}
+
 #Apresentacao{
     text-align: left;
     border-bottom: 1px solid rgb(54, 53, 53);
