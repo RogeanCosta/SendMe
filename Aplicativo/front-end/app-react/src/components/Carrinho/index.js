@@ -45,7 +45,7 @@ export default class Carrinho extends Component {
       <tbody>
         {this.state.carrinho.map(produto => (<tr>
           <th>{number++}</th>
-          <th>{produto.nome}</th>
+        <th>{produto.nome}</th>
           <th>{produto.quantidade}</th>
           <th>{produto.preco}</th>
           <th><Button variant="danger" id="rm">Remover do Carrinho</Button></th>

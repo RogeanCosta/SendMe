@@ -30,13 +30,11 @@ exports.enviarEmail = functions.https.onRequest((req, res) => {
         text: corpo,
         html: corpoHtml
     };*/
-
-
     var message = {
       from: 'xtrsmk@gmail.com',
       to: 'xtrsmk@gmail.com',
       subject: 'Mais um Pedido SendMe',
-      text: 'Issso é um texto!'
+      text: 'Pedido de Fulano de Tal recebido, entrega no endereço rua de tal tal com os seguintes itens: Arroz Camil[3], Feijão Carioca Tio França[2]' 
   };
   
 
