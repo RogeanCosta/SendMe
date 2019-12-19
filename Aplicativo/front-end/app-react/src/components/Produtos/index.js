@@ -20,6 +20,7 @@ export default class Produtos extends Component {
     produtos: [],
     favoritos: [],
     carrinho: [],
+    loja: null,
     currentUser: null
   }
 
@@ -29,8 +30,8 @@ export default class Produtos extends Component {
         this.db.ref('usuarios').orderByChild("_uid").equalTo(this.props.location.query.userId).on("value", snapshot => {
           const [usuarioId, userData] = Object.entries(snapshot.val())[0];
           const currentUser = { ...userData, _id: usuarioId };
-          let favoritos = null;
-          let carrinho = null;
+          let favoritos = [];
+          let carrinho = [];
 
           if (currentUser.favoritos) {
             favoritos = Object.entries(currentUser.favoritos).map(([key, value]) => ({ ...value, _id: key }))
@@ -40,26 +41,28 @@ export default class Produtos extends Component {
             carrinho = Object.entries(currentUser.carrinho).map(([key, value]) => ({ ...value, _id: key }))
           }
 
-          this.setState({ currentUser, favoritos: favoritos || [], carrinho: carrinho || [] });
+          this.setState({ currentUser, favoritos, carrinho });
+
+          this.db.ref('produtos').on("value", snapshot => {
+            let produtos = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key, quantidade: 0 }))
+            const { categoria, loja } = this.props.location.query;
+            if (categoria) {
+              if (categoria.tipo === 'favorito') {
+                const idsProdutosFavoritos = favoritos.map(el => el.produtoId)
+                produtos = produtos.filter(produto => idsProdutosFavoritos.includes(produto._id));
+              } else {
+                produtos = produtos.filter(produto => produto.tipo === categoria.tipo);
+              }
+            }
+            if (loja) {
+              produtos = produtos.filter(produto => produto.loja === loja._id);
+            }
+
+            this.setState({ produtos, loja, categoria })
+          });
         });
       }
     }
-
-    this.db.ref('produtos').on("value", snapshot => {
-      let produtos = Object.entries(snapshot.val()).map(([key, value]) => ({ ...value, _id: key, quantidade: 0 }))
-
-      if (this.props.location.query) {
-        const { categoria, lojaId } = this.props.location.query;
-        if (categoria) {
-          produtos = produtos.filter(produto => produto.tipo === categoria);
-        }
-        if (lojaId) {
-          produtos = produtos.filter(produto => produto.loja === lojaId);
-        }
-      }
-
-      this.setState({ produtos })
-    });
   }
 
   aumentarQtdProduto = produtoId => {
@@ -219,7 +222,7 @@ export default class Produtos extends Component {
     return (
       <div>
         <div id="Apresentacao">
-          <h1>Supermercado São Luiz - Categoria: Mercearia</h1>
+          <h1>{this.state.loja && this.state.loja.nome} - Categoria: {this.state.categoria && this.state.categoria.nome}</h1>
         </div>
         {this.renderProdutos()}
       </div>

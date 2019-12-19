@@ -94,13 +94,13 @@ class Carrinho extends Component {
 
   render() {
     return (
-      <div className="u-release">
-        <div id="presentation">
+      <div>
+        <div id="Apresentacao">
           <h1>Carrinho de Compras</h1>
         </div>
         {this.renderCarrinho()}
         <div id="lucros">
-          <Button id="dinheiro" variant="success">Ir para o Pagamento</Button>
+          <Button id="dinheiro" variant="success" onClick={() => this.props.history.push('/pagamento')}>Ir para o Pagamento</Button>
           <Button id="volta" variant="danger" onClick={() => this.props.history.push('/inicial')}>Voltar as Compras</Button>
         </div>
       </div>

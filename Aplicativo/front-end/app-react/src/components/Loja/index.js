@@ -8,14 +8,14 @@ import chunk from "../../utils/chunk"
 
 export default class Produtos extends Component {
   state = {
-    lojaId: null,
+    loja: null,
     userId: null
   }
 
   componentDidMount() {
     if (this.props.location && this.props.location.state) {
-      const { lojaId, userId } = this.props.location.state;
-      this.setState({ lojaId, userId })
+      const { loja, userId } = this.props.location.state;
+      this.setState({ loja, userId })
     }
   }
 
@@ -31,8 +31,8 @@ export default class Produtos extends Component {
                 <Link to={{
                   pathname: '/produtos',
                   query: {
-                    categoria: categoria.tipo,
-                    lojaId: this.state.lojaId,
+                    categoria: categoria,
+                    loja: this.state.loja,
                     userId: this.state.userId
                   }
                 }}>
@@ -45,8 +45,8 @@ export default class Produtos extends Component {
               <Link to={{
                 pathname: '/produtos',
                 query: {
-                  categoria: categoria.tipo,
-                  lojaId: this.state.lojaId,
+                  categoria: categoria,
+                  loja: this.state.loja,
                   userId: this.state.userId
                 }
               }}>

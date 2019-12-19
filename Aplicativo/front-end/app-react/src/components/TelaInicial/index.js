@@ -40,7 +40,7 @@ class TelaInicial extends Component {
                     onClick={() => this.props.history.push({
                       pathname: '/loja',
                       state: {
-                        lojaId: lojas._id,
+                        loja: lojas,
                         userId: this.props.userId
                       }
                     })} />
