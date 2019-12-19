@@ -46,7 +46,6 @@ class Login extends Component {
               <div className="card card-signin my-5">
                 <div className="card-body">
                 <h1 className="card-title text-center" id="logo">SendMe</h1>
-                  <h6 className="card-title text-center">Login</h6>
                   <form className="form-signin" onSubmit={this.handleSubmit}>
                     <div className="form-label-group">
                       <input
@@ -106,7 +105,7 @@ class Login extends Component {
           </div>
           <div className="row">
             <div className="col-md-12 text-center">
-              <a className="btn btn-outline-light" href="/" role="button">
+              <a className="btn btn-outline-light" href="/help" role="button">
                 Ajuda
               </a>
             </div>

@@ -1,13 +1,13 @@
 const Categorias =[
     {
         "nome": "Favoritos",
-        "imagem": "imagens/estrela.jpg",
+        "imagem": "imagens/estrela.png",
         "tipo": "favorito"
     },
 
     {
         "nome": "Descontos",
-        "imagem": "Imagens/promoçao.png",
+        "imagem": "Imagens/promocao.png",
         "tipo": "desconto"
     },
 
@@ -25,8 +25,13 @@ const Categorias =[
 
     {
         "nome": "Frutas e Verduras",
-        "imagem": "Imagens/frutas.jpg",
+        "imagem": "Imagens/hortifruti.png",
         "tipo": "hortifruti"
+    },
+    {
+        "nome": "Matinais",
+        "imagem": "Imagens/matinais.png",
+        "tipo": "matinais"
     },
 
     {
@@ -36,25 +41,19 @@ const Categorias =[
     },
 
     {
-        "nome": "Pet",
-        "imagem": "imagens/pet.png",
-        "tipo": "pet"
+        "nome": "Perfumaria",
+        "imagem": "imagens/perfumaria.png",
+        "tipo": "perfumaria"
     },
 
     {
-        "nome": "Frutas e Verduras",
-        "imagem": "Imagens/frutas.jpg",
-        "tipo": "hortifruti"
+        "nome": "Bebidas",
+        "imagem": "Imagens/bebidas.png",
+        "tipo": "bebidas"
     },
 
     {
-        "nome": "Limpeza",
-        "imagem": "Imagens/limpeza.png",
-        "tipo": "limpeza"
-    },
-
-    {
-        "nome": "Pet",
+        "nome": "Mundo Pet",
         "imagem": "imagens/pet.png",
         "tipo": "pet"
     }
