@@ -43,8 +43,8 @@ export default () => (
             </div>
             <div className="card card-signin my-5" id="tela-contatos">
                 <div>
-                    <h6>Problemas com o aplicativo? Fale conosco</h6>
-                    <p>&#128386; contatododesenvolvedor@email.com</p>
+                    <h6>Problemas com o aplicativo? Fale conosco:</h6>
+                    <p>&#128386; sendme@gmail.com</p>
                 </div>
             </div>
         </div>
