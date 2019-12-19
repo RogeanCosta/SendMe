@@ -163,10 +163,10 @@ svg{
     left: 6cm;
 }
 
-#cntr{
+#Container{
     position: relative;
     top: 55px;
-    left: -1cm;
+    left: 3cm;
 }
 
 #nonpedir{
