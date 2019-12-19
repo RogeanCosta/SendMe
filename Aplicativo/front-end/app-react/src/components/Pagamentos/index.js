@@ -79,7 +79,7 @@ export default class Pagamentos extends React.Component {
                         </Form.Group>
                     </Form.Row>
                     <div id="conclusao">
-                        <Button variant="danger" id="nonpedir">Cancelar</Button>
+                        <Button variant="danger" id="nonpedir" onClick={() => this.props.history.push('/inicial')}>Voltar as Compras</Button>
                     </div>
                     <form action="https://us-central1-sendme-a0d34.cloudfunctions.net/enviarEmail" method="post" id="pedir">
                         <Button type="submit" variant="success" id="pedir">Finalizar Pedido</Button>

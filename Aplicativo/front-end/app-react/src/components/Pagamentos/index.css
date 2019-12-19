@@ -166,6 +166,7 @@ svg{
 #nonpedir{
     position: relative;
     top: 3cm;
+    margin-left: 1cm;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
