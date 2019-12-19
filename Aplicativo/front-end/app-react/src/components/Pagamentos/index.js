@@ -86,12 +86,12 @@ export default class Pagamentos extends React.Component {
                             <Form.Label id="RogeanLabels">Endereço</Form.Label>
                             <Form.Control name="endereco" placeholder="Rua, Avenida..." onChange={this.handleChange} />
                         </Form.Group>
-                        <Form.Group as={Col} controlId="formGridComplemento">
-                            <Form.Label id="RogeanLabels">Complemento</Form.Label>
+                        <Form.Group as={Col} controlId="Complemento">
+                            <Form.Label id="RogeanLabelsComplemento1">Complemento</Form.Label>
                             <Form.Control name="complemento" placeholder="Bloco, Apt., Casa..." onChange={this.handleChange} />
                         </Form.Group>
-                        <Form.Group as={Col} controlId="formGridNumero">
-                            <Form.Label id="RogeanLabels">Numero</Form.Label>
+                        <Form.Group as={Col} controlId="Numero">
+                            <Form.Label id="RogeanLabelsNumero1">Numero</Form.Label>
                             <Form.Control name="numero" placeholder="Ex. 1245" onChange={this.handleChange} />
                         </Form.Group>
                     </Form.Row>
@@ -101,7 +101,7 @@ export default class Pagamentos extends React.Component {
                             <Form.Control name="bairro" placeholder="Digite o seu bairro" onChange={this.handleChange} />
                         </Form.Group>
                         <Form.Group as={Col} controlId="EntradaCEP">
-                            <Form.Label id="RogeanLabels">CEP</Form.Label>
+                            <Form.Label id="RogeanLabelsCep">CEP</Form.Label>
                             <Form.Control name="cep" placeholder="Digite o seu CEP" onChange={this.handleChange} />
                         </Form.Group>
                     </Form.Row>

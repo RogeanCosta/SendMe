@@ -12,16 +12,46 @@
     left: 7cm;
 }
 
+#RogeanLabelsComplemento1{
+    position: relative;
+    top: 0cm;
+    width: 40%;
+    left: 4.5cm;
+    color: rgb(38, 39, 39);
+    font-weight:bold;
+}
+#RogeanLabelsNumero1{
+    position: relative;
+    top: 0cm;
+    width: 40%;
+    left: 3cm;
+    color: rgb(38, 39, 39);
+    font-weight:bold;
+}
+
+#RogeanLabelsCep{
+    position: relative;
+    top: 0cm;
+    width: 40%;
+    right: 191px;
+    color: rgb(38, 39, 39);
+    font-weight: bold;
+}
+
 #EspecifyLabel{
     position: relative;
     right: 1.6cm;
+    color: rgb(38, 39, 39);
+    font-weight:bold;
 }
 
 #EntradaBairro{
     width: 53%;
     position: relative;
     right: 1.6cm;
+
 }
+
 
 #CEPalinhado{
     position: relative;
@@ -30,7 +60,20 @@
 
 #EntradaCEP{
     width: 30%;
-    left: 2cm;
+    right: 5cm;
+    position: relative;
+}
+
+#Complemento{
+    width: 86%;
+    left: 4.5cm;
+    position: relative;
+}
+
+
+#Numero{
+    width: 21%;
+    left: 3cm;
     position: relative;
 }
 
