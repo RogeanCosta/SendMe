@@ -5,12 +5,26 @@
   #buttons{
     text-align: center;
     position: relative;
-    top: 1.75cm;
+    top: 20px;
+    margin-bottom: 20px;
   }
 
   #cadastrar{
     position: relative;
     right: 2cm;
+
+  }
+
+  #RogeanLabelsComplemento{
+    margin-left: 7cm;
+    color: rgb(38, 39, 39);
+    font-weight:bold;
+  }
+
+  #RogeanLabelsNumero{
+    margin-left: 7cm;
+    color: rgb(38, 39, 39);
+    font-weight:bold;
   }
 
   #Container{
@@ -52,7 +66,7 @@
 
   #formGridNumero{
     width: 25%;
-    margin-left: 2cm;
+    margin-left: 7cm;
   }
 
   #formGridCidade{
@@ -80,9 +94,11 @@
   }
 
   #formGridComplemento{
-    margin-left: 2cm;
+    margin-left: 7cm;
   }
 
   #RogeanLabels{
     margin-left: 2cm;
+    color: rgb(38, 39, 39);
+    font-weight:bold;
   }
