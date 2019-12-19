@@ -50,7 +50,7 @@ export default class Produtos extends Component {
                   userId: this.state.userId
                 }
               }}>
-                <Card.Img className="imagem" src={categoria.imagem} />
+                <Card.Img style={{marginBottom: '62px'}} className="imagem" src={categoria.imagem} />
               </Link>
             </Card>
           ))}
