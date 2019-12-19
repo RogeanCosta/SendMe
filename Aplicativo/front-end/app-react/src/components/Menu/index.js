@@ -13,20 +13,11 @@ class Menu extends Component {
   }
 
   handleClickCarrinho = () => {
-    this.db.ref('usuarios').orderByChild("_uid").equalTo(this.props.user.uid).on("value", snapshot => {
-      const [userId, userData] = Object.entries(snapshot.val())[0];
-
-      let carrinho = [];
-      if (userData.carrinho) {
-        carrinho = Object.values(userData.carrinho);
+    this.props.history.push({
+      pathname: '/carrinho',
+      state: {
+        userId: this.props.user.uid
       }
-
-      this.props.history.push({
-        pathname: '/carrinho',
-        state: {
-          user: { _id: userId, carrinho }
-        }
-      });
     });
   }
 

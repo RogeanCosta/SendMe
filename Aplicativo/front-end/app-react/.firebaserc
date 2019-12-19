@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "sendme-a0d34"
+    "default": "sendme-a0d34",
+    "staging": "sendme-a0d34"
   }
 }

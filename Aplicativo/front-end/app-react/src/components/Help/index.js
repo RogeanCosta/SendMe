@@ -11,25 +11,22 @@ export default () => (
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 className="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Pergunta 1</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Quais são as formas de pagamento disponíveis?</a>
                             </h4>
                         </div>
                         <div id="collapse1" class="panel-collapse collapse in">
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                            <div class="panel-body">Cartões de Crédito nas bandeiras MasterCard, Elo, Visa e Cartão de Débito.
+                                                    </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 className="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Pergunta 2</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Como faço para alterar meu endereço?</a>
                             </h4>
                         </div>
                         <div id="collapse2" class="panel-collapse collapse">
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                            <div class="panel-body">As alterações de endereço devem ser feitas em alterar dados no seu perfil.</div>
                         </div>
                     </div>
                         <div class="panel panel-default">
@@ -51,7 +48,6 @@ export default () => (
                     <h4>Contato do supermercado</h4>
                     <p> &#128386; contato@email.com</p>
                     <p>	&#9742; (xx) xxxxx-xxxx</p>
-                    <p>link p/ facebook</p>
                 </div>
                 <div>
                     <h6>Problemas com o aplicativo? Fale conosco</h6>
