@@ -220,7 +220,7 @@ export default class Produtos extends Component {
 
   render() {
     return (
-      <div>
+      <div id="Container">
         <div id="Apresentacao">
           <h1>{this.state.loja && this.state.loja.nome} - Categoria: {this.state.categoria && this.state.categoria.nome}</h1>
         </div>
